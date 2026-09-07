@@ -1,4 +1,4 @@
-## Prof. Nie
+## Prof. Nie Bingbing
 
 Associate Professor, Tsinghua University
 
