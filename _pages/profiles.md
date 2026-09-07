@@ -15,7 +15,6 @@ profiles:
       <p></p>
       <p></p>
 
-profiles:
   - align: right
     image: professor_nie.jpg
     content: professor_nie.md
@@ -24,7 +23,6 @@ profiles:
       <p></p>
       <p></p>
 
-profiles:
   - align: right
     image: professor_xia.jpg
     content: professor_xia.md
