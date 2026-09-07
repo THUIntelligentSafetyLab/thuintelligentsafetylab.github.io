@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-We are delighted to welcome new members Zhixin Zhao and Yunhan Li to our research group.
+We are delighted to welcome new members Zhixin Zhao and Yunhan Li to our research group
