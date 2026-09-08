@@ -2,10 +2,35 @@
 layout: page
 title: Awards
 permalink: /awards/
-description: Selected honors and awards received by members of the Intelligent Safety Laboratory.
+description: Honors and awards received by members of the Intelligent Safety Laboratory.
 nav: true
 nav_order: 4
 ---
+
+<style>
+/* 各年份是独立表格，浏览器会各自按内容算列宽；固定列宽让所有年份对齐。
+   本 <style> 只出现在 awards 页面，不影响站点其它页面。 */
+table {
+  table-layout: fixed;
+  width: 100%;
+}
+th:nth-child(1), td:nth-child(1) { width: 15%; }
+th:nth-child(2), td:nth-child(2) { width: 12%; }
+th:nth-child(3), td:nth-child(3) { width: 73%; }
+
+td {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  vertical-align: top;
+}
+
+@media (max-width: 768px) {
+  /* 窄屏下姓名和日期列留宽一点 */
+  th:nth-child(1), td:nth-child(1) { width: 26%; }
+  th:nth-child(2), td:nth-child(2) { width: 20%; }
+  th:nth-child(3), td:nth-child(3) { width: 54%; }
+}
+</style>
 
 ## 2026
 
