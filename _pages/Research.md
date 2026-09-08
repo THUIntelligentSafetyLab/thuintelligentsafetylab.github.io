@@ -9,6 +9,29 @@ display_categories: [research]
 horizontal: false
 ---
 
+<style>
+/* Make all Research card thumbnails the same size */
+.projects .card figure {
+  width: 100%;
+  margin: 0;
+}
+
+.projects .card picture {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.projects .card .card-img-top {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+}
+</style>
+
 <!-- pages/projects.md -->
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}
