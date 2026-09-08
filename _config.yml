@@ -9,7 +9,7 @@ last_name:
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  THU Automotive Crash Laboratory focuses on automotive safety, intelligent vehicles, human–vehicle interaction, and injury biomechanics.
+  
 footer_text: >
   Contact: <a href="mailto:thuacl@163.com">thuacl@163.com</a>.
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
