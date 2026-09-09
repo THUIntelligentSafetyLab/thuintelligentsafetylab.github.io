@@ -1,7 +1,7 @@
 ---
 layout: course
 title: First-Year Orientation Course
-description: This course is designed primarily for first-year undergraduate students and supports their transition from high school to university through general education, scientific inquiry, and personal development. It is organized around three modules: Me and My University, Me and My Major, and Me and Myself. Through small-group seminars and hands-on experiences, students learn about university life and Tsinghua traditions, explore interdisciplinary research through intelligent vehicle cases, and develop self-awareness, resilience, and a sense of responsibility.
+description: This course is designed primarily for first-year undergraduate students and supports their transition from high school to university through general education, scientific inquiry, and personal development. It is organized around three modules：Me and My University, Me and My Major, and Me and Myself. Through small-group seminars and hands-on experiences, students learn about university life and Tsinghua traditions, explore interdisciplinary research through intelligent vehicle cases, and develop self-awareness, resilience, and a sense of responsibility.
 instructor: Bingbing Nie, Hong Wang
 year: 2026
 term: Fall
