@@ -51,7 +51,6 @@ td {
 | --- | --- | --- |
 | Qingfan Wang | Oct 2024 | National Scholarship for Doctoral Students, Tsinghua University |
 | Gaoyuan Kuang | Oct 2024 | Second-Class Comprehensive Excellence Scholarship, Tsinghua University |
-| Detong Qin | Nov 2024 | December 9th Counselor Award, Tsinghua University |
 | Detong Qin | Oct 2024 | First-Class Comprehensive Excellence Scholarship, Tsinghua University |
 | Detong Qin | Oct 2024 | Excellence Scholarship for All-Round Development in Moral, Intellectual, Physical, Aesthetic and Labor Education (Department Level), Tsinghua University |
 | Detong Qin | Oct 2024 | Outstanding Student Leader (Model), Tsinghua University |
@@ -61,6 +60,7 @@ td {
 
 | Name | Date | Award |
 | --- | --- | --- |
+| Detong Qin | Nov 2023 | 129 Counselor Award, Tsinghua University |
 | Qingfan Wang | Oct 2023 | First-Class Comprehensive Excellence Scholarship (University Level), Tsinghua University |
 | Qingfan Wang | Oct 2023 | Pioneer Scholarship for All-Round Development in Moral, Intellectual, Physical, Aesthetic and Labor Education (Department Level), Tsinghua University |
 | Qingfan Wang | May 2023 | Second Prize for Outstanding Oral Presentation, 2023 National Graduate Academic Forum on Intelligent Electric Vehicles & the 710th Tsinghua University Doctoral Academic Forum |
