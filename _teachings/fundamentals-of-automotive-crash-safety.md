@@ -2,7 +2,7 @@
 layout: "course"
 title: "Fundamentals of Automotive Crash Safety"
 description: "This course introduces the fundamentals and state-of-the-art technologies of automotive crash safety and impact protection, including crash mechanics, injury biomechanics, occupant restraint systems, pedestrian protection, vehicle structures and materials, adaptive protection for autonomous vehicles, and battery crash safety."
-instructor: "Qing Zhou"
+instructor: Qing Zhou, Bingbing Nie, Yong Xia
 year: 2026
 term: "Fall"
 location: "Room 3203, Third Teaching Building (Chinese class)"
