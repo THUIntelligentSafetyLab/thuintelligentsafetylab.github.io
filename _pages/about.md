@@ -7,17 +7,17 @@ subtitle: Tsinghua University · Beijing · China
 profile:
   align: right
   images:
-    - lab_photo_0.jpg
-    - lab_photo_1.jpg
-    - lab_photo_2.jpg
-    - lab_photo_3.jpg
-    - lab_photo_99.jpg
-    - lab_photo_5.jpg
-    - lab_photo_10.jpg
-    - lab_photo_50.jpg
-    - lab_photo_52.jpg
-    - lab_photo_55.jpg
-    - lab_photo_57.jpg
+    - lab_photo/lab_photo_0.jpg
+    - lab_photo/lab_photo_1.jpg
+    - lab_photo/lab_photo_2.jpg
+    - lab_photo/lab_photo_3.jpg
+    - lab_photo/lab_photo_99.jpg
+    - lab_photo/lab_photo_5.jpg
+    - lab_photo/lab_photo_10.jpg
+    - lab_photo/lab_photo_50.jpg
+    - lab_photo/lab_photo_52.jpg
+    - lab_photo/lab_photo_55.jpg
+    - lab_photo/lab_photo_57.jpg
     
   image_circular: false # crops the image to make it circular
   more_info: >
