@@ -46,7 +46,7 @@ td {
 
 | Name | Date | Award |
 | --- | --- | --- |
-| Detong Qin | Nov 2025 | Lin Feng Counselor Award, Tsinghua University |
+| **Detong Qin** | **Nov 2025** | **Lin Feng Counselor Award, Tsinghua University** |
 | Detong Qin | Oct 2025 | First-Class Comprehensive Excellence Scholarship, Tsinghua University |
 | Zijian He, Tianle Lu | Oct 2025 | Second-Class Comprehensive Excellence Scholarship, Tsinghua University |
 | Jiajie Shen | Oct 2025 | Outstanding Member of the Communist Youth League, Tsinghua University |
@@ -58,13 +58,13 @@ td {
 | Name | Date | Award |
 | --- | --- | --- |
 | **Qingfan Wang** | **Oct 2024** | **National Scholarship for Doctoral Students, Tsinghua University** |
-| **Tianle Lu** | **Oct 2024** | **Outstanding Teaching Assistant Award (Automotive Safety Course), Tsinghua University** |
+| **Tianle Lu** | **Oct 2024** | **Outstanding Teaching Assistant Award ([Automotive Safety]({{ '/teachings/automotive-safety/' | relative_url }})), Tsinghua University** |
 | Huamu Sun | Oct 2024 | Wang Dazhong Scholarship, Tsinghua University |
 | Detong Qin | Oct 2024 | First-Class Comprehensive Excellence Scholarship, Tsinghua University; Outstanding Student Leader (Model), Tsinghua University; Outstanding Social Work Award, Tsinghua University |
 | Gaoyuan Kuang | Oct 2024 | Second-Class Comprehensive Excellence Scholarship, Tsinghua University |
 | Siyuan Liu | Oct 2024 | Second-Class Excellence Scholarship, School of Vehicle and Mobility, Tsinghua University |
 | **Yi Yang** | **2024** | **National Scholarship for Undergraduate Students** |
-| Hanshuo Wang | 2024 | Top Ten Athletes of the University Sports Teams, Tsinghua University |
+| **Hanshuo Wang** | **2024** | **Top Ten Athletes of the University Sports Teams, Tsinghua University** |
 
 ## 2023
 
@@ -84,7 +84,7 @@ td {
 
 | Name | Date | Award |
 | --- | --- | --- |
-| Qingfan Wang | Nov 2022 | NSK Sino-Japan Friendship Outstanding Paper Prize for Students of the Department of Mechanical Engineering, Tsinghua University |
+| **Qingfan Wang** | **Nov 2022** | **NSK Sino-Japan Friendship Outstanding Paper Prize for Students of the Department of Mechanical Engineering, Tsinghua University** |
 | Qingfan Wang | Oct 2022 | Second-Class Comprehensive Excellence Scholarship, Tsinghua University |
 | Detong Qin | Oct 2022 | Outstanding Student Leader, Tsinghua University |
 | **Qingfan Wang** | **May 2022** | **First Prize for Outstanding Oral Presentation (sole recipient), Intelligent Mobility and Vehicle Design Sub-forum, 2022 Beijing Graduate Academic Forum on Vehicle Engineering & the 675th Tsinghua University Doctoral Academic Forum** |
