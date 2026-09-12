@@ -39,23 +39,27 @@ layout: default
 
 
   <article>
-    {% if page.profile %}
-      <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
-        {% if page.profile.image %}
-          {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-          {% if page.profile.image_circular %}
-            {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-          {% else %}
-            {% assign profile_image_class = 'img-fluid z-depth-1
-      rounded' %}
-          {% endif %}
-          {% capture sizes %}(min-width: {{ site.max_width }}) {{ site.max_width | minus: 30 | times: 0.3}}px, (min-width: 576px)
-      30vw, 95vw"{% endcapture %}
-          {%
-            include figure.liquid loading="eager" path=profile_image_path class=profile_image_class sizes=sizes alt=page.profile.image
-            cache_bust=true
-          %}
-        {% endif %}
+    {% if page.profile.images %}
+      <div class="home-slideshow">
+        {% for image in page.profile.images %}
+          <img
+            src="{{ '/assets/img/' | append: image | relative_url }}"
+            alt="Intelligent Safety Laboratory"
+            class="home-slide{% if forloop.first %} active{% endif %}"
+          >
+        {% endfor %}
+      </div>
+    {% elsif page.profile.image %}
+      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+      {% include figure.liquid
+        loading="eager"
+        path=profile_image_path
+        class="img-fluid z-depth-1 rounded"
+        alt=page.profile.image
+        cache_bust=true
+      %}
+    {% endif %}
+
         {% if page.profile.more_info %}
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
@@ -106,3 +110,48 @@ layout: default
     {% endif %}
   </article>
 </div>
+
+
+
+<style>
+.home-slideshow {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.home-slideshow .home-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+.home-slideshow .home-slide.active {
+  opacity: 1;
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const slides = document.querySelectorAll(".home-slideshow .home-slide");
+
+  if (slides.length <= 1) return;
+
+  let current = 0;
+
+  setInterval(function () {
+    slides[current].classList.remove("active");
+
+    current = (current + 1) % slides.length;
+
+    slides[current].classList.add("active");
+  }, 3000);
+});
+</script>
