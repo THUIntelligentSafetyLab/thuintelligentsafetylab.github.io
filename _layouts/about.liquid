@@ -43,14 +43,14 @@ layout: default
       <div class="home-slideshow">
         {% for image in page.profile.images %}
           <img
-            src="{{ '/assets/img/' | append: image | relative_url }}"
+            src="{{ '/assets/img/lab_photo' | append: image | relative_url }}"
             alt="Intelligent Safety Laboratory"
             class="home-slide{% if forloop.first %} active{% endif %}"
           >
         {% endfor %}
       </div>
     {% elsif page.profile.image %}
-      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
+      {% assign profile_image_path = page.profile.image | prepend: 'assets/img/lab_photo' %}
       {% include figure.liquid
         loading="eager"
         path=profile_image_path
