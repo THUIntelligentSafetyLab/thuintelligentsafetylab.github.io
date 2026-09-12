@@ -39,7 +39,7 @@ latest_posts:
 
 ## About us
 
-The Intelligent Safety Laboratory conducts interdisciplinary research on human-centered vehicle safety, spanning human–vehicle interaction, risk and injury assessment, safety-critical decision making, and AI-driven integrated injury prevention.
+The Intelligent Safety Laboratory pioneers human-centered vehicle safety by integrating human cognition, large language models, experimental research, and human–AI collaborative intelligence, and by combining expert knowledge with data-driven methods to advance the vision of zero traffic fatalities and serious injuries.
 
 ## Research areas
 
