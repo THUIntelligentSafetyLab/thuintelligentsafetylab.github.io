@@ -75,25 +75,6 @@ Meet the team
 Our research areas
 </div>
 
-
 {% include research_cards.liquid %}
 
 
-<div class="section-title">
-Research vision
-</div>
-
-
-<div class="vision-box">
-
-Understand Human Behavior
-→
-Assess Risk
-→
-Predict Injury
-→
-Make Safe Decisions
-→
-Prevent Harm
-
-</div>
