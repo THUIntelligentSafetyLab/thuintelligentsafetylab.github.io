@@ -228,58 +228,438 @@ layout: default
 
 
 <style>
+/* =========================================================
+   HOME PAGE — Intelligent Safety Laboratory
+   ========================================================= */
+
+
+/* ---------- Header ---------- */
+
+.post-header {
+  margin-bottom: 28px;
+}
+
+.post-header .post-title {
+  font-size: 2rem;
+  font-weight: 650;
+  line-height: 1.2;
+}
+
+.post-header .desc {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: var(--global-text-color-light, #666);
+}
+
+
+/* =========================================================
+   Hero
+   ========================================================= */
+
+.hero-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: 56px;
+
+  align-items: center;
+
+  padding: 38px 0 72px;
+  margin-bottom: 0;
+
+  border-bottom: 1px solid var(--global-divider-color, #e5e5e5);
+}
+
+
+/* Left side */
+
+.hero-text {
+  width: auto;
+  min-width: 0;
+}
+
+
+.hero-text h1 {
+  margin: 0 0 24px;
+
+  font-size: clamp(44px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+
+  color: var(--global-text-color, #222);
+}
+
+
+.hero-text p {
+  max-width: 620px;
+
+  margin: 0 0 32px;
+
+  font-size: 18px;
+  line-height: 1.75;
+
+  color: var(--global-text-color-light, #666);
+}
+
+
+/* Buttons */
+
+.home-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 44px;
+
+  padding: 10px 22px;
+  margin: 0 12px 10px 0;
+
+  border-radius: 5px;
+
+  font-size: 15px;
+  font-weight: 500;
+
+  text-decoration: none !important;
+
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.home-button:hover {
+  transform: translateY(-1px);
+}
+
+
+.home-button.primary {
+  border: 1px solid #551a8b;
+  background: #551a8b;
+  color: #fff !important;
+}
+
+
+.home-button.primary:hover {
+  background: #43146e;
+  border-color: #43146e;
+}
+
+
+.home-button.secondary {
+  border: 1px solid #551a8b;
+  background: transparent;
+  color: #551a8b !important;
+}
+
+
+.home-button.secondary:hover {
+  background: #551a8b;
+  color: #fff !important;
+}
+
+
+/* Right side */
+
+.hero-image {
+  width: 100%;
+  min-width: 0;
+}
 
 
 .home-slideshow {
+  position: relative;
 
+  width: 100%;
+  aspect-ratio: 4 / 3;
 
-  position:relative;
+  overflow: hidden;
 
-  width:100%;
+  border-radius: 12px;
 
-  aspect-ratio:4 / 3;
+  background: #f2f2f2;
 
-  overflow:hidden;
-
-  border-radius:10px;
-
-
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    0 14px 36px rgba(0, 0, 0, 0.08);
 }
-
 
 
 .home-slideshow .home-slide {
+  position: absolute;
+  inset: 0;
 
+  width: 100%;
+  height: 100%;
 
-  position:absolute;
+  object-fit: cover;
+  object-position: center;
 
-  inset:0;
+  opacity: 0;
 
-  width:100%;
-
-  height:100%;
-
-  object-fit:cover;
-
-  opacity:0;
-
-  transition:opacity 0.8s ease-in-out;
-
-
+  transition: opacity 0.8s ease-in-out;
 }
-
 
 
 .home-slideshow .home-slide.active {
+  opacity: 1;
+}
 
 
-  opacity:1;
+/* =========================================================
+   Research Areas
+   ========================================================= */
 
+.section-title {
+  margin: 72px 0 30px;
+
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+
+  letter-spacing: -0.015em;
+
+  color: var(--global-text-color, #222);
+}
+
+
+.research-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 28px;
+
+  margin-bottom: 76px;
+}
+
+
+.research-card {
+  min-width: 0;
+  height: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid var(--global-divider-color, #e5e5e5);
+  border-radius: 12px;
+
+  padding: 0;
+
+  background: var(--global-bg-color, #fff);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.research-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 8px 18px rgba(0, 0, 0, 0.06),
+    0 18px 40px rgba(0, 0, 0, 0.06);
+}
+
+
+/* All three images have exactly the same display size */
+
+.research-card img {
+  display: block;
+
+  width: 100%;
+  height: 220px;
+
+  margin: 0;
+
+  border-radius: 0;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+
+.research-card h3 {
+  margin: 0;
+
+  padding: 22px 24px 12px;
+
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.35;
+
+  color: var(--global-text-color, #222);
+}
+
+
+.research-card ul {
+  margin: 0;
+
+  padding: 0 24px 24px 44px;
+}
+
+
+.research-card li {
+  margin-bottom: 6px;
+
+  font-size: 15px;
+  line-height: 1.6;
+
+  color: var(--global-text-color-light, #666);
+}
+
+
+/* =========================================================
+   Latest News + Recent Papers
+   ========================================================= */
+
+.bottom-grid {
+  display: grid;
+
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+
+  gap: 60px;
+
+  align-items: start;
+
+  margin-top: 10px;
+  padding-top: 38px;
+
+  border-top: 1px solid var(--global-divider-color, #e5e5e5);
+}
+
+
+.bottom-grid > div {
+  min-width: 0;
+}
+
+
+.bottom-grid h2 {
+  margin: 0 0 24px;
+
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.25;
+
+  color: var(--global-text-color, #222);
+}
+
+
+.bottom-grid h2 a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+
+/* Prevent publications from overflowing their column */
+
+.home-papers-column,
+.home-news-column {
+  width: 100%;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .hero-section {
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+
+  .hero-text h1 {
+    font-size: 44px;
+  }
+
+  .research-grid {
+    gap: 20px;
+  }
+
+  .research-card img {
+    height: 190px;
+  }
 
 }
 
 
+@media (max-width: 800px) {
 
+  .hero-section {
+    grid-template-columns: 1fr;
+
+    gap: 36px;
+
+    padding: 24px 0 54px;
+  }
+
+
+  .hero-image {
+    max-width: 640px;
+  }
+
+
+  .hero-text h1 {
+    font-size: 42px;
+  }
+
+
+  .research-grid {
+    grid-template-columns: 1fr;
+
+    gap: 24px;
+  }
+
+
+  .research-card img {
+    height: 260px;
+  }
+
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+
+    gap: 54px;
+  }
+
+}
+
+
+@media (max-width: 520px) {
+
+  .hero-text h1 {
+    font-size: 36px;
+  }
+
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+
+  .home-button {
+    width: 100%;
+
+    margin-right: 0;
+  }
+
+
+  .section-title {
+    margin-top: 54px;
+
+    font-size: 26px;
+  }
+
+
+  .research-card img {
+    height: 210px;
+  }
+
+}
 </style>
 
 
