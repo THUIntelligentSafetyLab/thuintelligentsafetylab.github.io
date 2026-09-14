@@ -1,197 +1,80 @@
 ---
 ---
 
-/* ============================================================
-   Intelligent Safety Laboratory Homepage Style
-   Tsinghua Engineering Style
-   ============================================================ */
 
+.hero-section{
 
-/* ---------- Global variables ---------- */
+display:flex;
 
-:root {
+align-items:center;
 
-  --tsinghua-purple: #551A8B;
-
-  --dark-text: #222222;
-
-  --gray-text: #666666;
-
-  --border-color: #e5e5e5;
-
-  --light-background: #f7f7f7;
+margin-bottom:70px;
 
 }
 
 
 
-/* ============================================================
-   Hero Section
-   ============================================================ */
+.hero-text{
+
+width:60%;
+
+}
 
 
-.hero-section {
+.hero-text h1{
 
-  display: flex;
+font-size:52px;
 
-  align-items: center;
+font-weight:700;
 
-  justify-content: space-between;
-
-  gap: 50px;
-
-  margin-top: 40px;
-
-  margin-bottom: 80px;
+line-height:1.2;
 
 }
 
 
 
-.hero-text {
+.hero-text p{
 
-  width: 55%;
+font-size:20px;
 
-}
+line-height:1.7;
 
-
-
-.hero-text h1 {
-
-  font-size: 52px;
-
-  font-weight: 700;
-
-  line-height: 1.15;
-
-  color: var(--dark-text);
-
-  margin-bottom: 25px;
-
-}
-
-
-
-.hero-text p {
-
-  font-size: 19px;
-
-  line-height: 1.8;
-
-  color: var(--gray-text);
-
-  margin-bottom: 35px;
-
-}
-
-
-
-/* ---------- Hero buttons ---------- */
-
-
-.home-button {
-
-  display: inline-block;
-
-  padding: 10px 24px;
-
-  margin-right: 15px;
-
-  border-radius: 5px;
-
-  font-size: 16px;
-
-  text-decoration: none;
-
-  transition: all 0.3s ease;
-
-}
-
-
-
-.home-button.primary {
-
-  background-color: var(--tsinghua-purple);
-
-  color: white;
-
-}
-
-
-
-.home-button.primary:hover {
-
-  opacity: 0.85;
-
-}
-
-
-
-.home-button.secondary {
-
-  border: 1px solid var(--tsinghua-purple);
-
-  color: var(--tsinghua-purple);
-
-}
-
-
-
-.home-button.secondary:hover {
-
-  background-color: var(--tsinghua-purple);
-
-  color: white;
+color:#666;
 
 }
 
 
 
 
-/* ============================================================
-   Homepage Image Slideshow
-   ============================================================ */
+.home-button{
 
+padding:10px 22px;
 
-.home-slideshow {
+margin-right:15px;
 
-  position: relative;
+border-radius:5px;
 
-  width: 100%;
-
-  aspect-ratio: 4 / 3;
-
-  overflow: hidden;
-
-  border-radius: 10px;
+text-decoration:none;
 
 }
 
 
 
-.home-slide {
+.home-button.primary{
 
-  position: absolute;
+background:#551A8B;
 
-  inset: 0;
-
-  width: 100%;
-
-  height: 100%;
-
-  object-fit: cover;
-
-  opacity: 0;
-
-  transition: opacity 0.8s ease-in-out;
+color:white;
 
 }
 
 
 
-.home-slide.active {
+.home-button.secondary{
 
-  opacity: 1;
+border:1px solid #551A8B;
+
+color:#551A8B;
 
 }
 
@@ -199,22 +82,39 @@
 
 
 
-/* ============================================================
-   Section Title
-   ============================================================ */
+.home-slideshow{
+
+position:relative;
+
+aspect-ratio:4/3;
+
+overflow:hidden;
+
+}
 
 
-.section-title {
 
-  font-size: 32px;
+.home-slide{
 
-  font-weight: 700;
+position:absolute;
 
-  margin-top: 70px;
+width:100%;
 
-  margin-bottom: 35px;
+height:100%;
 
-  color: var(--dark-text);
+object-fit:cover;
+
+opacity:0;
+
+transition:opacity .8s;
+
+}
+
+
+
+.home-slide.active{
+
+opacity:1;
 
 }
 
@@ -222,109 +122,66 @@
 
 
 
-/* ============================================================
-   Research Areas Cards
-   ============================================================ */
+.section-title{
 
+font-size:32px;
 
-.research-grid {
+font-weight:700;
 
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  gap: 30px;
-
-  margin-bottom: 70px;
+margin:50px 0 30px;
 
 }
 
 
 
 
-.research-card {
+.research-grid{
 
-  border: 1px solid var(--border-color);
+display:grid;
 
-  border-radius: 12px;
+grid-template-columns:repeat(3,1fr);
 
-  padding: 25px;
-
-  background: white;
-
-  height: 100%;
-
-  transition: transform 0.25s ease,
-              box-shadow 0.25s ease;
+gap:30px;
 
 }
 
 
 
-.research-card:hover {
+.research-card{
 
-  transform: translateY(-5px);
+border:1px solid #ddd;
 
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+padding:25px;
 
-}
-
-
-
-
-.research-card img {
-
-  width: 100%;
-
-  height: 220px;
-
-  object-fit: cover;
-
-  border-radius: 8px;
-
-  margin-bottom: 20px;
+border-radius:10px;
 
 }
 
 
 
+.research-card img{
 
-.research-card h3 {
+width:100%;
 
-  font-size: 21px;
+height:220px;
 
-  line-height: 1.35;
-
-  font-weight: 600;
-
-  color: var(--dark-text);
-
-  margin-bottom: 18px;
+object-fit:cover;
 
 }
 
 
 
+.research-card h3{
 
-.research-card ul {
-
-  padding-left: 20px;
-
-  margin-bottom: 0;
+font-size:22px;
 
 }
 
 
 
-.research-card li {
+.research-card li{
 
-  font-size: 15px;
-
-  line-height: 1.7;
-
-  color: var(--gray-text);
-
-  margin-bottom: 5px;
+line-height:1.7;
 
 }
 
@@ -332,127 +189,35 @@
 
 
 
-/* ============================================================
-   News + Recent Papers Two Column Layout
-   ============================================================ */
+.bottom-grid{
 
+display:grid;
 
-.bottom-grid {
+grid-template-columns:1fr 1fr;
 
-  display: grid;
+gap:50px;
 
-  grid-template-columns: repeat(2, 1fr);
-
-  gap: 50px;
-
-  margin-top: 50px;
+margin-top:70px;
 
 }
 
 
 
+@media(max-width:900px){
 
 
-.bottom-grid h2 {
+.research-grid,
+.bottom-grid{
 
-  font-size: 28px;
-
-  font-weight: 700;
-
-  margin-bottom: 25px;
+grid-template-columns:1fr;
 
 }
 
 
+.hero-text{
 
-
-
-/* ============================================================
-   Research Vision (if used in future)
-   ============================================================ */
-
-
-.vision-box {
-
-  background: var(--light-background);
-
-  border-radius: 10px;
-
-  padding: 35px;
-
-  text-align: center;
-
-  font-size: 22px;
-
-  line-height: 1.8;
-
-  margin-bottom: 60px;
+width:100%;
 
 }
-
-
-
-
-
-/* ============================================================
-   Footer
-   ============================================================ */
-
-
-.site-footer {
-
-  margin-top: 80px;
-
-}
-
-
-
-
-
-/* ============================================================
-   Responsive design
-   ============================================================ */
-
-
-@media screen and (max-width: 992px) {
-
-
-  .hero-section {
-
-    flex-direction: column;
-
-  }
-
-
-  .hero-text {
-
-    width: 100%;
-
-  }
-
-
-
-  .hero-text h1 {
-
-    font-size: 40px;
-
-  }
-
-
-
-  .research-grid {
-
-    grid-template-columns: 1fr;
-
-  }
-
-
-
-  .bottom-grid {
-
-    grid-template-columns: 1fr;
-
-  }
-
 
 }
