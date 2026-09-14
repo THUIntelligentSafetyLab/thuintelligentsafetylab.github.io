@@ -18,104 +18,63 @@ profile:
     - lab_photo/lab_photo_52.jpg
     - lab_photo/lab_photo_55.jpg
     - lab_photo/lab_photo_57.jpg
-    
-  image_circular: false # crops the image to make it circular
+  image_circular: false
 
-
-selected_papers: true # includes a list of papers marked as "selected={true}"
+selected_papers: true
+social: false
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 7 # leave blank to include all the news in the `_news` folder
+  enabled: true
+  scrollable: true
+  limit: 7
 
 latest_posts:
   enabled: false
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  scrollable: true
+  limit: 3
 ---
 
 
-
-<div class="hero-section">
-
-
-<div class="hero-text">
-
-
-<h1>
-Human-centered<br>
-Vehicle Safety
-</h1>
-
-
-<p>
-The Intelligent Safety Laboratory advances human-centered vehicle safety by integrating human cognition, artificial intelligence, experimental research, and engineering approaches toward the vision of zero traffic fatalities and serious injuries.
-</p>
-
-
-
-<a class="home-button primary"
-href="/Research/">
-Explore Research
-</a>
-
-
-<a class="home-button secondary"
-href="/people/">
-Meet the Team
-</a>
-
-
-</div>
-
-
-</div>
-
-
-
 <div class="section-title">
-
 OUR RESEARCH AREAS
-
 </div>
-
-
 
 {% include research_cards.liquid %}
 
 
-
 <div class="bottom-grid">
 
+  {% if page.announcements and page.announcements.enabled %}
 
-<div>
+  <div class="home-news-column">
 
-<h2>
-Latest News
-</h2>
+    <h2>
+      <a href="{{ '/news/' | relative_url }}" style="color: inherit; text-decoration: none;">
+        Latest News
+      </a>
+    </h2>
+
+    {% include news.liquid limit=true %}
+
+  </div>
+
+  {% endif %}
 
 
-{% include news.liquid %}
+  {% if page.selected_papers %}
 
+  <div class="home-papers-column">
+
+    <h2>
+      <a href="{{ '/publications/' | relative_url }}" style="color: inherit; text-decoration: none;">
+        Recent Papers
+      </a>
+    </h2>
+
+    {% include selected_papers.liquid %}
+
+  </div>
+
+  {% endif %}
 
 </div>
-
-
-
-<div>
-
-<h2>
-Recent Papers
-</h2>
-
-
-{% include selected_papers.liquid %}
-
-
-</div>
-
-
-</div>
-
-
