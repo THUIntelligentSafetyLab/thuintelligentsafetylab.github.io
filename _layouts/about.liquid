@@ -178,28 +178,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
 <script>
 
+
 document.addEventListener(
 "DOMContentLoaded",
 function(){
 
-let slides =
-document.querySelectorAll(".home-slide");
+
+let slides=document.querySelectorAll(".home-slide");
 
 
-let current=0;
+if(slides.length<=1)
+return;
+
+
+let index=0;
 
 
 setInterval(function(){
 
-slides[current]
-.classList.remove("active");
+
+slides[index].classList.remove("active");
 
 
-current=(current+1)%slides.length;
+index=(index+1)%slides.length;
 
 
-slides[current]
-.classList.add("active");
+slides[index].classList.add("active");
 
 
 },4000);
