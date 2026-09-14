@@ -39,6 +39,7 @@ latest_posts:
 
 
 
+
 <div class="hero-section">
 
 <div class="hero-text">
@@ -48,28 +49,51 @@ Human-centered<br>
 Vehicle Safety
 </h1>
 
+
 <p>
 The Intelligent Safety Laboratory advances human-centered vehicle safety by integrating human cognition, artificial intelligence, experimental research, and engineering approaches toward the vision of zero traffic fatalities and serious injuries.
 </p>
 
 
-<a class="btn btn-primary" href="/Research/">
-Explore Research
+<a class="home-button primary" href="/Research/">
+Explore research
 </a>
 
 
-<a class="btn btn-outline-primary" href="/people/">
-Meet the Team
+<a class="home-button secondary" href="/people/">
+Meet the team
 </a>
 
 
 </div>
 
-
-<div class="hero-image">
-
-<!-- 图片轮播放这里 -->
-
 </div>
+
+
+
+<div class="section-title">
+Our research areas
+</div>
+
+
+{% include research_cards.liquid %}
+
+
+<div class="section-title">
+Research vision
+</div>
+
+
+<div class="vision-box">
+
+Understand Human Behavior
+→
+Assess Risk
+→
+Predict Injury
+→
+Make Safe Decisions
+→
+Prevent Harm
 
 </div>
