@@ -1,179 +1,294 @@
 ---
 layout: default
 ---
+
 <div class="post">
-  <header class="post-header">
-    <div style="
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 4px;
-    ">
-  
-      <img
-        src="{{ '/assets/img/logo_tsinghua_svm.png' | relative_url }}"
-        alt="Tsinghua University"
-        style="
-          height: 50px;
-          width: auto;
-          object-fit: contain;
-          display: block;
-        "
-      >
-  
-      <h1 class="post-title" style="margin: 0;">
-        {% if site.title == 'blank' %}
-          <span class="font-weight-bold">{{ site.first_name }}</span>
-          {{ site.middle_name }}
-          {{ site.last_name }}
-        {% else %}
-          {{ site.title }}
-        {% endif %}
-      </h1>
-  
-    </div>
-  
-    <p class="desc">{{ page.subtitle }}</p>
-  </header>
 
 
-  <article>
-  {% if page.profile %}
-    <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
+<header class="post-header">
 
-      {% if page.profile.images %}
 
-      <div class="home-slideshow">
+  <div style="
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:4px;
+  ">
+
+
+    <img
+      src="{{ '/assets/img/logo_tsinghua_svm.png' | relative_url }}"
+      alt="Tsinghua University"
+      style="
+        height:50px;
+        width:auto;
+        object-fit:contain;
+        display:block;
+      "
+    >
+
+
+    <h1 class="post-title" style="margin:0;">
+
+      {% if site.title == 'blank' %}
+
+        <span class="font-weight-bold">
+          {{ site.first_name }}
+        </span>
+
+        {{ site.middle_name }}
+
+        {{ site.last_name }}
+
+      {% else %}
+
+        {{ site.title }}
+
+      {% endif %}
+
+    </h1>
+
+
+  </div>
+
+
+
+  <p class="desc">
+    {{ page.subtitle }}
+  </p>
+
+
+</header>
+
+
+
+
+
+<article>
+
+
+<!-- ===========================
+     Hero Section
+     =========================== -->
+
+
+<div class="hero-section">
+
+
+
+  <!-- Left text -->
+
+  <div class="hero-text">
+
+
+    <h1>
+      Human-centered<br>
+      Vehicle Safety
+    </h1>
+
+
+
+    <p>
+      The Intelligent Safety Laboratory advances human-centered vehicle safety by integrating human cognition, artificial intelligence, experimental research, and engineering approaches toward the vision of zero traffic fatalities and serious injuries.
+    </p>
+
+
+
+    <a
+      class="home-button primary"
+      href="{{ '/Research/' | relative_url }}"
+    >
+      Explore Research
+    </a>
+
+
+
+    <a
+      class="home-button secondary"
+      href="{{ '/people/' | relative_url }}"
+    >
+      Meet the Team
+    </a>
+
+
+  </div>
+
+
+
+
+
+  <!-- Right slideshow -->
+
+  {% if page.profile.images %}
+
+
+  <div class="hero-image">
+
+
+    <div class="home-slideshow">
+
 
       {% for image in page.profile.images %}
 
+
       <img
-      src="{{ '/assets/img/' | append:image | relative_url }}"
-      class="home-slide {% if forloop.first %}active{% endif %}"
+
+        src="{{ '/assets/img/' | append:image | relative_url }}"
+
+        alt="Intelligent Safety Laboratory"
+
+        class="home-slide {% if forloop.first %}active{% endif %}"
+
       >
-      
-      
+
+
       {% endfor %}
-      
-      </div>
-      
-      
-      {% elsif page.profile.image %}
-      
-      
-      {% assign profile_image_path =
-      page.profile.image | prepend:'assets/img/' %}
-      
-      
-      {% include figure.liquid
-      path=profile_image_path
-      class="img-fluid rounded"
-      %}
-    
-      {% endif %}
 
 
-      {% if page.profile.more_info %}
-        <div class="more-info">
-          {{ page.profile.more_info }}
-        </div>
-      {% endif %}
 
     </div>
+
+
+  </div>
+
+
   {% endif %}
 
-  <div class="clearfix">{{ content }}</div>
 
-    <!-- News -->
-    {% if page.announcements and page.announcements.enabled %}
-      <h2>
-        <a href="{{ '/news/' | relative_url }}" style="color: inherit">News</a>
-      </h2>
-      {% include news.liquid limit=true %}
-    {% endif %}
 
-    <!-- Latest posts -->
-    {% if page.latest_posts and page.latest_posts.enabled %}
-      <h2>
-        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
-      </h2>
-      {% include latest_posts.liquid %}
-    {% endif %}
-
-    <!-- Recent papers -->
-    {% if page.selected_papers %}
-      <h2>
-        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Recent papers</a>
-      </h2>
-      {% include selected_papers.liquid %}
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% social_links %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
-
-    {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
-      {% if site.plugins contains 'al_newsletter' %}
-        {% include plugins/al_newsletter_form_center_margin.liquid %}
-      {% else %}
-        {% include newsletter.liquid center=true %}
-      {% endif %}
-    {% endif %}
-  </article>
 </div>
 
 
 
+
+
+<!-- ===========================
+     Page content
+     Includes research cards
+     =========================== -->
+
+
+<div class="clearfix">
+
+{{ content }}
+
+</div>
+
+
+
+
+
+<!-- ===========================
+     Social links
+     =========================== -->
+
+
+{% if page.social %}
+
+
+<div class="social">
+
+
+<div class="contact-icons">
+
+{% social_links %}
+
+</div>
+
+
+<div class="contact-note">
+
+{{ site.contact_note }}
+
+</div>
+
+
+</div>
+
+
+{% endif %}
+
+
+
+
+
+</article>
+
+
+</div>
+
+
+
+
+
+<!-- ===========================
+     Slideshow style
+     =========================== -->
+
+
 <style>
+
+
 .home-slideshow {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: 8px;
+
+
+  position:relative;
+
+  width:100%;
+
+  aspect-ratio:4 / 3;
+
+  overflow:hidden;
+
+  border-radius:10px;
+
+
 }
+
+
 
 .home-slideshow .home-slide {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 
-  opacity: 0;
-  transition: opacity 0.8s ease-in-out;
+
+  position:absolute;
+
+  inset:0;
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  opacity:0;
+
+  transition:opacity 0.8s ease-in-out;
+
+
 }
+
+
 
 .home-slideshow .home-slide.active {
-  opacity: 1;
+
+
+  opacity:1;
+
+
 }
+
+
+
 </style>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const slides = document.querySelectorAll(".home-slideshow .home-slide");
-
-  if (slides.length <= 1) return;
-
-  let current = 0;
-
-  setInterval(function () {
-    slides[current].classList.remove("active");
-
-    current = (current + 1) % slides.length;
-
-    slides[current].classList.add("active");
-  }, 3000);
-});
-</script>
 
 
+
+
+<!-- ===========================
+     Slideshow script
+     =========================== -->
 
 
 <script>
@@ -184,29 +299,44 @@ document.addEventListener(
 function(){
 
 
-let slides=document.querySelectorAll(".home-slide");
+const slides =
+document.querySelectorAll(
+".home-slideshow .home-slide"
+);
 
 
-if(slides.length<=1)
+
+if(slides.length <= 1)
 return;
 
 
-let index=0;
+
+let current = 0;
+
 
 
 setInterval(function(){
 
 
-slides[index].classList.remove("active");
+slides[current]
+.classList
+.remove("active");
 
 
-index=(index+1)%slides.length;
+
+current =
+(current + 1) % slides.length;
 
 
-slides[index].classList.add("active");
+
+slides[current]
+.classList
+.add("active");
+
 
 
 },4000);
+
 
 
 });
