@@ -2,119 +2,87 @@
 ---
 
 
-.hero-section{
+/* ===============================
+   Hero Section
+   =============================== */
 
-display:flex;
 
-align-items:center;
+.hero-section {
 
-margin-bottom:70px;
+  display: flex;
+
+  align-items: center;
+
+  margin-bottom: 70px;
+
+}
+
+
+.hero-text {
+
+  width: 60%;
+
+}
+
+
+.hero-text h1 {
+
+  font-size: 52px;
+
+  font-weight: 700;
+
+  line-height: 1.2;
 
 }
 
 
 
-.hero-text{
+.hero-text p {
 
-width:60%;
+  font-size: 20px;
 
-}
+  line-height: 1.7;
 
-
-.hero-text h1{
-
-font-size:52px;
-
-font-weight:700;
-
-line-height:1.2;
+  color: #666;
 
 }
 
 
 
-.hero-text p{
-
-font-size:20px;
-
-line-height:1.7;
-
-color:#666;
-
-}
+/* ===============================
+   Buttons
+   =============================== */
 
 
+.home-button {
 
+  padding: 10px 22px;
 
-.home-button{
+  margin-right: 15px;
 
-padding:10px 22px;
+  border-radius: 5px;
 
-margin-right:15px;
-
-border-radius:5px;
-
-text-decoration:none;
+  text-decoration: none;
 
 }
 
 
 
-.home-button.primary{
+.home-button.primary {
 
-background:#551A8B;
+  background: #551A8B;
 
-color:white;
-
-}
-
-
-
-.home-button.secondary{
-
-border:1px solid #551A8B;
-
-color:#551A8B;
+  color: white;
 
 }
 
 
 
+.home-button.secondary {
 
+  border: 1px solid #551A8B;
 
-.home-slideshow{
-
-position:relative;
-
-aspect-ratio:4/3;
-
-overflow:hidden;
-
-}
-
-
-
-.home-slide{
-
-position:absolute;
-
-width:100%;
-
-height:100%;
-
-object-fit:cover;
-
-opacity:0;
-
-transition:opacity .8s;
-
-}
-
-
-
-.home-slide.active{
-
-opacity:1;
+  color: #551A8B;
 
 }
 
@@ -122,102 +90,220 @@ opacity:1;
 
 
 
-.section-title{
+/* ===============================
+   Homepage Image Slideshow
+   =============================== */
 
-font-size:32px;
 
-font-weight:700;
+.home-slideshow {
 
-margin:50px 0 30px;
+  position: relative;
+
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+}
+
+
+
+.home-slide {
+
+  position: absolute;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transition: opacity 0.8s ease-in-out;
+
+}
+
+
+
+.home-slide.active {
+
+  opacity: 1;
 
 }
 
 
 
 
-.research-grid{
-
-display:grid;
-
-grid-template-columns:repeat(3,1fr);
-
-gap:30px;
-
-}
+/* ===============================
+   Section Title
+   =============================== */
 
 
+.section-title {
 
-.research-card{
+  font-size: 32px;
 
-border:1px solid #ddd;
+  font-weight: 700;
 
-padding:25px;
-
-border-radius:10px;
-
-}
-
-
-
-.research-card img{
-
-width:100%;
-
-height:220px;
-
-object-fit:cover;
-
-}
-
-
-
-.research-card h3{
-
-font-size:22px;
-
-}
-
-
-
-.research-card li{
-
-line-height:1.7;
+  margin: 50px 0 30px;
 
 }
 
 
 
 
+/* ===============================
+   Research Areas
+   =============================== */
 
-.bottom-grid{
 
-display:grid;
+.research-grid {
 
-grid-template-columns:1fr 1fr;
+  display: grid;
 
-gap:50px;
+  grid-template-columns: repeat(3,1fr);
 
-margin-top:70px;
+  gap: 30px;
+
+  margin-bottom: 70px;
 
 }
 
+
+
+.research-card {
+
+  border: 1px solid #e5e5e5;
+
+  border-radius: 12px;
+
+  padding: 25px;
+
+  background: white;
+
+  height: 100%;
+
+}
+
+
+
+.research-card img {
+
+  width: 100%;
+
+  height: 240px;
+
+  object-fit: cover;
+
+  object-position: center;
+
+  border-radius: 8px;
+
+  display: block;
+
+  margin-bottom: 20px;
+
+}
+
+
+
+.research-card h3 {
+
+  font-size: 21px;
+
+  line-height: 1.35;
+
+  font-weight: 600;
+
+  color: #222;
+
+  margin-bottom: 18px;
+
+}
+
+
+
+.research-card ul {
+
+  padding-left: 20px;
+
+  margin-bottom: 0;
+
+}
+
+
+
+.research-card li {
+
+  font-size: 15px;
+
+  line-height: 1.7;
+
+  color: #666;
+
+  margin-bottom: 5px;
+
+}
+
+
+
+
+/* ===============================
+   News + Recent Papers
+   =============================== */
+
+
+.bottom-grid {
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:50px;
+
+  margin-top:70px;
+
+}
+
+
+
+
+/* ===============================
+   Responsive Design
+   =============================== */
 
 
 @media(max-width:900px){
 
 
-.research-grid,
-.bottom-grid{
+  .hero-section {
 
-grid-template-columns:1fr;
+    flex-direction: column;
 
-}
+  }
 
 
-.hero-text{
+  .hero-text {
 
-width:100%;
+    width:100%;
 
-}
+  }
+
+
+  .research-grid {
+
+    grid-template-columns:1fr;
+
+  }
+
+
+  .bottom-grid {
+
+    grid-template-columns:1fr;
+
+  }
+
 
 }
