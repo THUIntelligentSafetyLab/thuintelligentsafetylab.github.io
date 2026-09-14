@@ -101,7 +101,7 @@ posts_in_search: true
 bib_search: true
 
 # Dimensions
-max_width: 930px
+max_width: 1180px
 
 # -----------------------------------------------------------------------------
 # Open Graph & Schema.org
@@ -310,8 +310,6 @@ defaults:
 sass:
   style: compressed
 
-custom_css:
-  - home
 
 # -----------------------------------------------------------------------------
 # Jekyll Minifier
