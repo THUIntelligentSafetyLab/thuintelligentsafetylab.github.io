@@ -20,11 +20,9 @@ profile:
     - lab_photo/lab_photo_57.jpg
     
   image_circular: false # crops the image to make it circular
-  more_info: >
-    <p></p>
+
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
-social: false # includes social icons at the bottom of the page
 
 announcements:
   enabled: true # includes a list of news items
@@ -39,10 +37,11 @@ latest_posts:
 
 
 
-
 <div class="hero-section">
 
+
 <div class="hero-text">
+
 
 <h1>
 Human-centered<br>
@@ -55,26 +54,68 @@ The Intelligent Safety Laboratory advances human-centered vehicle safety by inte
 </p>
 
 
-<a class="home-button primary" href="/Research/">
-Explore research
+
+<a class="home-button primary"
+href="/Research/">
+Explore Research
 </a>
 
 
-<a class="home-button secondary" href="/people/">
-Meet the team
+<a class="home-button secondary"
+href="/people/">
+Meet the Team
 </a>
 
 
 </div>
+
 
 </div>
 
 
 
 <div class="section-title">
-Our research areas
+
+OUR RESEARCH AREAS
+
 </div>
 
+
+
 {% include research_cards.liquid %}
+
+
+
+<div class="bottom-grid">
+
+
+<div>
+
+<h2>
+Latest News
+</h2>
+
+
+{% include news.liquid %}
+
+
+</div>
+
+
+
+<div>
+
+<h2>
+Recent Papers
+</h2>
+
+
+{% include selected_papers.liquid %}
+
+
+</div>
+
+
+</div>
 
 
