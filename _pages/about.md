@@ -37,24 +37,39 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-## About us
 
-The Intelligent Safety Laboratory pioneers human-centered vehicle safety by integrating human cognition, large language models, experimental research, and human–AI collaborative intelligence, and by combining expert knowledge with data-driven methods to advance the vision of zero traffic fatalities and serious injuries.
 
-## Research areas
+<div class="hero-section">
 
-### 1. Human–vehicle Interaction and Safety
-- Human–automation interaction  
-- Pedestrian behavior and pedestrian–vehicle interaction  
-- Road user modeling with realistic dynamic behaviors  
-- Injury biomechanics  
+<div class="hero-text">
 
-### 2. Human-centered Risk Assessment & Decision Making
-- Physics-informed risk assessment  
-- Injury risk prediction  
-- Safety-critical decision  
+<h1>
+Human-centered<br>
+Vehicle Safety
+</h1>
 
-### 3. AI-driven Integrated Safety & Injury Prevention
-- Risk perception and trajectory prediction  
-- Active/Passive safety integration  
-- Virtual testing  
+<p>
+The Intelligent Safety Laboratory advances human-centered vehicle safety by integrating human cognition, artificial intelligence, experimental research, and engineering approaches toward the vision of zero traffic fatalities and serious injuries.
+</p>
+
+
+<a class="btn btn-primary" href="/Research/">
+Explore Research
+</a>
+
+
+<a class="btn btn-outline-primary" href="/people/">
+Meet the Team
+</a>
+
+
+</div>
+
+
+<div class="hero-image">
+
+<!-- 图片轮播放这里 -->
+
+</div>
+
+</div>
