@@ -43,33 +43,36 @@ layout: default
     <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
 
       {% if page.profile.images %}
-        <div class="home-slideshow">
-          {% for image in page.profile.images %}
-            <img
-              src="{{ '/assets/img/' | append: image | relative_url }}"
-              alt="Intelligent Safety Laboratory"
-              class="home-slide{% if forloop.first %} active{% endif %}"
-            >
-          {% endfor %}
-        </div>
 
+      <div class="home-slideshow">
+
+      {% for image in page.profile.images %}
+
+      <img
+      src="{{ '/assets/img/' | append:image | relative_url }}"
+      class="home-slide {% if forloop.first %}active{% endif %}"
+      >
+      
+      
+      {% endfor %}
+      
+      </div>
+      
+      
       {% elsif page.profile.image %}
-        {% assign profile_image_path = page.profile.image | prepend: 'assets/img/' %}
-
-        {% if page.profile.image_circular %}
-          {% assign profile_image_class = 'img-fluid z-depth-1 rounded-circle' %}
-        {% else %}
-          {% assign profile_image_class = 'img-fluid z-depth-1 rounded' %}
-        {% endif %}
-
-        {% include figure.liquid
-          loading="eager"
-          path=profile_image_path
-          class=profile_image_class
-          alt=page.profile.image
-          cache_bust=true
-        %}
+      
+      
+      {% assign profile_image_path =
+      page.profile.image | prepend:'assets/img/' %}
+      
+      
+      {% include figure.liquid
+      path=profile_image_path
+      class="img-fluid rounded"
+      %}
+    
       {% endif %}
+
 
       {% if page.profile.more_info %}
         <div class="more-info">
@@ -168,4 +171,41 @@ document.addEventListener("DOMContentLoaded", function () {
     slides[current].classList.add("active");
   }, 3000);
 });
+</script>
+
+
+
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+let slides =
+document.querySelectorAll(".home-slide");
+
+
+let current=0;
+
+
+setInterval(function(){
+
+slides[current]
+.classList.remove("active");
+
+
+current=(current+1)%slides.length;
+
+
+slides[current]
+.classList.add("active");
+
+
+},4000);
+
+
+});
+
+
 </script>
