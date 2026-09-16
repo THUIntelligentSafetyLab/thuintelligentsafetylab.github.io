@@ -6,7 +6,7 @@ instructor: Bingbing Nie, Shaobing Xu, Hong Wang
 year: 2026
 term: Fall
 location: Room B106, 6th Teaching Building
-time: Period 13:30-15:05 on Tuesday, Weeks 1–16
+time: Tuesday 13:30-15:05, Weeks 1–16
 course_id: 00150222
 schedule:
   - week: 1
