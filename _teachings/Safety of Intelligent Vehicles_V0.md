@@ -5,8 +5,8 @@ description: "This undergraduate general education elective examines the evoluti
 instructor: Bingbing Nie, Shaobing Xu, Hong Wang
 year: 2026
 term: Fall
-location: Room XXX, Xth Teaching Building
-time: Period X on XX, Weeks 1–XX
+location: Room B106, 6th Teaching Building
+time: Period 13:30-15:05 on Tuesday, Weeks 1–16
 course_id: 00150222
 schedule:
   - week: 1
