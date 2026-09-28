@@ -53,7 +53,7 @@ resources:
       rgba(255,255,255,0.97) 40%,
       rgba(255,255,255,0.72) 62%,
       rgba(255,255,255,0.10) 100%),
-    url("{{ '/assets/img/Research_1/background.jpg' | relative_url }}") center / cover no-repeat;
+    url("{{ '/assets/img/Research_1/injury risk prediction.jpg' | relative_url }}") center / cover no-repeat;
 }
 
 .research-hero-inner {
@@ -415,7 +415,7 @@ resources:
     min-height: 0;
     background:
       linear-gradient(rgba(255,255,255,0.93), rgba(255,255,255,0.95)),
-      url("{{ '/assets/img/Research_1/background.jpg' | relative_url }}") center / cover no-repeat;
+      url("{{ '/assets/img/Research_1/injury risk prediction.jpg' | relative_url }}") center / cover no-repeat;
   }
 
   .research-hero-inner {
