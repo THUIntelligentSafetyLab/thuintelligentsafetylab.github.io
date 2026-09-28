@@ -913,13 +913,14 @@ The model was jointly trained on four public driver-attention datasets — **BDD
 
 ### 2.1 Framework
 
-Accurate prediction of occupant injury severity provides quantitative injury information for both pre-crash trajectory planning and in-crash occupant protection. However, occupant injury is governed by complex interactions among vehicle crash dynamics, occupant characteristics, and restraint conditions, making rapid and reliable injury assessment challenging. To address this, we built a large-scale numerical crash database across diverse frontal impacts. Deep learning first captured the nonlinear crash-to-injury relationship; we then extracted compact, physically interpretable kinematic features from crash pulses and paired them with low-complexity machine-learning models. This enabled near-real-time injury prediction with substantially lower computational cost while maintaining reliable performance.
+Occupant injury is governed by complex interactions among vehicle crash dynamics, occupant characteristics, and restraint conditions, making rapid and reliable injury assessment challenging. To address this, we built a large-scale numerical crash database across diverse frontal impacts. Deep learning first captured the nonlinear crash-to-injury relationship; we then extracted compact, physically interpretable kinematic features from crash pulses and paired them with low-complexity machine-learning models. This enabled near-real-time injury prediction with substantially lower computational cost while maintaining reliable performance.
 
 ### 2.2 Dataset
 
-The efficiency of the occupant injury prediction algorithm depends largely on the quality of the database. A large-scale numerical database containing **28,000 frontal collision cases** was constructed by combining finite-element, multi-body, and lumped-parameter simulation models. The database covers occupant kinetics and injury responses with variations in vehicle crash pulse, occupant gender, and restraint configuration. 
+A large-scale numerical database containing **28,000 frontal collision cases** was constructed by combining finite-element, multi-body, and lumped-parameter simulation models. The database covers occupant kinetics and injury responses with variations in vehicle crash pulse, occupant gender, and restraint configuration. 
 
-We also constructed a small-sized dataset of real-world MVCs to further validate the developed injury prediction model’s performance by screening vehicle crash cases from the National Automotive Sampling System/Crashworthiness Data System (NASS/CDS). We then excluded crash cases with multiple impacts or with vehicle body types differing from the sedan model used in the numerical database, such as pickup, utility, and van. Finally, the validation dataset contained **192 frontal collision cases** with occupant injury AIS levels for the head, neck, and chest ranging from 0 to 6. 
+To further validate the injury prediction model, we constructed a small real-world MVC dataset from NASS/CDS. After excluding multiple-impact cases and non-sedan vehicle types (pickup, utility, van), the final dataset contained 192 frontal collisions with head, neck, and chest AIS levels ranging from 0 to 6.
+
 
 ### 2.3 Methods
 
@@ -927,7 +928,7 @@ The RNN-based injury severity prediction model adopted a conventional encoder–
 
 ### 2.4 Results
 
-On the numerical dataset, the final model achieved 85.4% accuracy in predicting head injury severity. On an independent dataset of 192 real-world collisions, it achieved 78.7% accuracy, a recall of 0.787, and an AUC of 0.698. Crucially, each prediction takes only 1.2 ± 0.4 ms—several orders of magnitude faster than finite element simulation—making it fast enough to inform occupant protection decisions within the crash itself.
+On the numerical dataset, the final model achieved **85.4%** accuracy in predicting head injury severity. On an independent dataset of 192 real-world collisions, it achieved **78.7%** accuracy, a recall of 0.787, and an AUC of 0.698. Crucially, each prediction takes only **1.2 ± 0.4** ms—several orders of magnitude faster than finite element simulation—making it fast enough to inform occupant protection decisions within the crash itself.
   </div>
 
 </div>
@@ -1007,7 +1008,7 @@ We developed a metric (**unified safety benefit**) that evaluates automated-driv
 
 </div>
 
-The results show that **a lower collision rate does not necessarily translate directly into a proportionally higher overall safety benefit**. In the experiment, Level 3 automation reduced collision occurrence relative to Level 2 but exhibited higher injury severity when collisions occurred, resulting in comparable unified safety benefits. Level 4 achieved a higher overall safety benefit primarily through a lower collision rate, while the reduction in residual-collision injury severity was more limited. 
+The results show that **a lower collision rate does not necessarily translate directly into a proportionally higher overall safety benefit**. In the experiment, **Level 3 automation reduced collision occurrence relative to Level 2 but exhibited higher injury severity when collisions occurred, resulting in comparable unified safety benefits**. Level 4 achieved a higher overall safety benefit primarily through a lower collision rate, while the reduction in residual-collision injury severity was more limited. 
 
 ### 3.3 Human-informed decision making
 
@@ -1023,10 +1024,6 @@ The current published framework establishes the experimental and quantitative ba
 <section id="publications-data" class="resources-section" markdown="1">
 
 ## Publications & Open Resources
-
-<p class="resources-intro">
-The publications below provide the methodological details underlying the three research modules. Public code and datasets are linked where available.
-</p>
 
 | Paper | Data & Code |
 | :--- | :---: |
