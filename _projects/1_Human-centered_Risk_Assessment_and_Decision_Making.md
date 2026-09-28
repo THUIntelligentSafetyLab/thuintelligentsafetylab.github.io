@@ -15,46 +15,570 @@ resources:
   experimental_dataset: ""
 ---
 
+
 <style>
-/* 页面内隐藏 description，卡片列表和 SEO meta 不受影响 */
+.post-header,
 .post-description {
+  display: none !important;
+}
+
+.research-detail-page {
+  --rd-purple: #5b21b6;
+  --rd-purple-dark: #351063;
+  --rd-purple-soft: #f4efff;
+  --rd-purple-line: #ded2f6;
+  --rd-text: #202033;
+  --rd-muted: #67677a;
+  --rd-border: #e7e4ee;
+  --rd-card: #ffffff;
+  color: var(--rd-text);
+}
+
+.research-detail-page a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Hero */
+.research-hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 430px;
+  margin: 10px 0 22px;
+  border: 1px solid var(--rd-border);
+  border-radius: 22px;
+  background:
+    linear-gradient(90deg,
+      rgba(255,255,255,0.99) 0%,
+      rgba(255,255,255,0.97) 40%,
+      rgba(255,255,255,0.72) 62%,
+      rgba(255,255,255,0.10) 100%),
+    url("{{ '/assets/img/Research_1/background.jpg' | relative_url }}") center / cover no-repeat;
+}
+
+.research-hero-inner {
+  position: relative;
+  z-index: 2;
+  width: min(68%, 760px);
+  padding: 66px 58px 58px;
+}
+
+.research-eyebrow {
+  display: inline-flex;
+  margin-bottom: 16px;
+  color: var(--rd-purple);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.research-hero h1 {
+  margin: 0 0 20px;
+  color: var(--rd-purple-dark);
+  font-size: clamp(38px, 5vw, 62px);
+  font-weight: 750;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+}
+
+.research-hero p {
+  max-width: 720px;
+  margin: 0;
+  color: #3d3d4c;
+  font-size: 18px;
+  line-height: 1.72;
+}
+
+.research-flow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.research-flow span {
+  padding: 8px 12px;
+  border: 1px solid rgba(91,33,182,0.18);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.84);
+  color: var(--rd-purple-dark);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+/* Metrics */
+.research-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0 0 22px;
+}
+
+.metric-card {
+  min-height: 118px;
+  padding: 22px 24px;
+  border: 1px solid var(--rd-border);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #fff 0%, #f7f3ff 100%);
+  box-shadow: 0 6px 22px rgba(42, 24, 72, 0.045);
+}
+
+.metric-value {
+  margin-bottom: 5px;
+  color: var(--rd-purple);
+  font-size: 29px;
+  font-weight: 780;
+  line-height: 1;
+}
+
+.metric-title {
+  margin-bottom: 5px;
+  color: var(--rd-text);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.metric-note {
+  color: var(--rd-muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Sticky local navigation */
+.research-subnav {
+  position: sticky;
+  top: 66px;
+  z-index: 20;
+  display: flex;
+  gap: 2px;
+  overflow-x: auto;
+  margin: 0 0 42px;
+  padding: 0 4px;
+  border-bottom: 1px solid var(--rd-border);
+  background: var(--global-bg-color, #fff);
+  scrollbar-width: none;
+}
+
+.research-subnav::-webkit-scrollbar {
   display: none;
+}
+
+.research-subnav a {
+  flex: 0 0 auto;
+  padding: 15px 16px 13px;
+  border-bottom: 2px solid transparent;
+  color: var(--rd-muted) !important;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none !important;
+}
+
+.research-subnav a:hover {
+  border-bottom-color: var(--rd-purple);
+  color: var(--rd-purple) !important;
+}
+
+/* Overview */
+.research-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 72px;
+}
+
+.overview-copy h2,
+.resources-section h2 {
+  margin: 0 0 16px;
+  color: var(--rd-text);
+  font-size: 32px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.overview-objective {
+  margin: 0 0 18px;
+  padding: 18px 20px;
+  border-left: 4px solid var(--rd-purple);
+  border-radius: 0 12px 12px 0;
+  background: var(--rd-purple-soft);
+  color: #393345;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.overview-copy p {
+  color: var(--rd-muted);
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+.overview-flow-card {
+  padding: 24px;
+  border: 1px solid var(--rd-border);
+  border-radius: 16px;
+  background: var(--rd-card);
+}
+
+.overview-flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.overview-flow .step {
+  color: var(--rd-purple-dark);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.overview-flow .arrow {
+  color: #aa8be8;
+  font-size: 20px;
+}
+
+/* Research sections */
+.research-section {
+  scroll-margin-top: 120px;
+  margin: 0 0 74px;
+  padding-top: 8px;
+}
+
+.section-heading {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 26px;
+}
+
+.section-number {
+  color: var(--rd-purple);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 52px;
+  line-height: 0.95;
+}
+
+.section-heading h2 {
+  margin: 0 0 7px;
+  color: var(--rd-text);
+  font-size: 28px;
+  font-weight: 750;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+}
+
+.section-heading h2 a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+.section-lead {
+  margin: 0;
+  color: var(--rd-muted);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.section-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 13px;
+}
+
+.section-stats span {
+  padding: 6px 10px;
+  border: 1px solid var(--rd-purple-line);
+  border-radius: 999px;
+  background: var(--rd-purple-soft);
+  color: var(--rd-purple-dark);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.research-section h3 {
+  margin: 30px 0 13px;
+  color: var(--rd-purple-dark);
+  font-size: 19px;
+  font-weight: 730;
+}
+
+.research-section p,
+.research-section li {
+  color: var(--rd-muted);
+  font-size: 15px;
+  line-height: 1.72;
+}
+
+.research-section > p {
+  max-width: 980px;
+}
+
+.research-section strong {
+  color: var(--rd-text);
+}
+
+.research-section .row {
+  margin-top: 20px !important;
+  margin-bottom: 8px !important;
+}
+
+.research-section figure,
+.research-section img {
+  border-radius: 12px;
+}
+
+.research-section .z-depth-1 {
+  box-shadow: 0 8px 24px rgba(33, 25, 48, 0.08) !important;
+}
+
+.research-section .caption {
+  margin-top: 9px !important;
+  color: #858394;
+  font-size: 12px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.research-section img[src$=".gif"] {
+  border: 1px solid var(--rd-border);
+  background: #fff;
+}
+
+/* Tables */
+.research-detail-page table {
+  width: 100%;
+  margin: 18px 0 26px;
+  overflow: hidden;
+  border: 1px solid var(--rd-border);
+  border-radius: 12px;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  font-size: 14px;
+}
+
+.research-detail-page thead th,
+.research-detail-page th {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--rd-border);
+  background: #f5f1fc;
+  color: var(--rd-purple-dark);
+  font-weight: 700;
+}
+
+.research-detail-page td {
+  padding: 12px 14px;
+  border-bottom: 1px solid #efedf3;
+  color: var(--rd-muted);
+  vertical-align: top;
+}
+
+.research-detail-page tr:last-child td {
+  border-bottom: none;
+}
+
+/* Resources */
+.resources-section {
+  scroll-margin-top: 120px;
+  margin-top: 34px;
+  padding-top: 42px;
+  border-top: 1px solid var(--rd-border);
+}
+
+.resources-intro {
+  margin-bottom: 22px;
+  color: var(--rd-muted);
+}
+
+.resources-section table td:first-child {
+  width: 78%;
+}
+
+.resources-section table td:last-child {
+  width: 22%;
+  text-align: center;
+}
+
+.resources-section table a {
+  font-weight: 620;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .research-hero {
+    min-height: 0;
+    background:
+      linear-gradient(rgba(255,255,255,0.93), rgba(255,255,255,0.95)),
+      url("{{ '/assets/img/Research_1/background.jpg' | relative_url }}") center / cover no-repeat;
+  }
+
+  .research-hero-inner {
+    width: 100%;
+    padding: 46px 32px;
+  }
+
+  .research-metrics,
+  .research-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .research-subnav {
+    top: 56px;
+  }
+}
+
+@media (max-width: 640px) {
+  .research-hero {
+    border-radius: 14px;
+  }
+
+  .research-hero-inner {
+    padding: 38px 22px;
+  }
+
+  .research-hero h1 {
+    font-size: 38px;
+  }
+
+  .research-hero p {
+    font-size: 16px;
+  }
+
+  .research-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .section-number {
+    font-size: 42px;
+  }
+
+  .section-heading h2 {
+    font-size: 23px;
+  }
+
+  .overview-flow {
+    grid-template-columns: 1fr;
+  }
+
+  .overview-flow .arrow {
+    transform: rotate(90deg);
+  }
+
+  .research-detail-page table {
+    display: block;
+    overflow-x: auto;
+  }
 }
 </style>
 
-> **Research objective.** We develop human-centered methods that integrate **risk perception, physics-informed risk assessment, occupant injury severity prediction, and injury-aware decision making**, bridging pre-crash collision avoidance with in-crash injury mitigation to support safer and more integrated intelligent vehicle safety systems. 
 
-## Highlights
-1. **Driver attention is predictable across heterogeneous traffic scenes, and it concentrates on latent conflicts.** Our Adaptive Driver Attention (ADA) model resolves the domain shift among driver-attention datasets through domain-specific normalization and adaptive attention modules. Jointly trained on four public datasets (**BDD-A, DADA-2000, DReyeVE, EyeTrack**) and tested on a fifth held-out dataset (**PSAD**), the model transfers without retraining and reproduces human attention patterns in cruising, turning, conflict, and accident situations. Critically, the predicted attention maps shift toward **latent conflict regions and relevant interacting vehicles** before and during safety-critical events — turning driver attention into a usable cue for early hazard identification.
-2. **A two-phase CNN–kinematic feature framework achieved 85.4% prediction accuracy within 1.2 ms using an SVM-based algorithm, providing real-time decision support for integrated vehicle safety.** Network visualization revealed that a high-accuracy deep model relies on a compressible portion of the crash pulse, allowing the **120-dimensional pulse to be reduced to three physically interpretable kinematic features**. Combined with occupant and restraint information in a lightweight model, this achieves **85.4% accuracy** for head injury severity on a **28,000-case** numerical database and **78.7%** on an independent **192-case** real-world NASS/CDS dataset, while requiring only **1.2 ± 0.4 ms** per case — several orders of magnitude faster than finite element simulation, and therefore fast enough to inform occupant protection decisions before the crash ends.
-3. **The safety performance of automated vehicles does not improve linearly with automation level.** Evaluating attentive manual driving (SAE L0) and SAE L2/L3/L4 vehicles under a unified driving-simulator framework (**30 participants, 1,859 safety-critical interactions, 337 collisions**) shows that **L3 reduced collisions relative to L2 (24.3% → 21.4%) yet nearly doubled the probability of severe occupant injury (11.1% → 21.6%), leaving the unified safety benefit essentially unchanged (90.0% vs. 89.0%)**. L4 gained its advantage (95.0%) mainly by avoiding collisions rather than by mitigating residual-collision injury. Collision avoidance is therefore necessary but not sufficient: safety performance must be assessed by **collision occurrence and injury severity jointly**.
+<div class="research-detail-page">
 
+<section class="research-hero">
+  <div class="research-hero-inner">
+    <div class="research-eyebrow">Human-centered autonomous vehicle safety</div>
+    <h1>Human-centered Risk Assessment &amp; Decision Making of Autonomous Vehicle</h1>
+    <p>
+      We integrate human risk perception, physics-informed risk assessment,
+      occupant injury severity prediction, and injury-aware decision making
+      to bridge pre-crash collision avoidance and in-crash injury mitigation.
+    </p>
 
-| Paper | Data & Code |
-| :--- | :---: |
-| [**Gan, S., et al.** (2022). Multisource Adaption for Driver Attention Prediction in Arbitrary Driving Scenes. *IEEE Transactions on Intelligent Transportation Systems, 23*(11), 20912–20925. https://doi.org/10.1109/TITS.2022.3177640](https://doi.org/10.1109/TITS.2022.3177640) | {% if page.resources.ada_code and page.resources.ada_code != "" %}[ADA code]({{ page.resources.ada_code }}){% else %}ADA code{% endif %} |
-| [**Wang, Q., et al.** (2021). A data-driven, kinematic feature-based, near real-time algorithm for injury severity prediction of vehicle occupants. *Accident Analysis & Prevention, 156*, 106149. https://doi.org/10.1016/j.aap.2021.106149](https://doi.org/10.1016/j.aap.2021.106149) | {% if page.resources.vehicle_crash_database and page.resources.vehicle_crash_database != "" %}[Vehicle-crash dataset]({{ page.resources.vehicle_crash_database }}){% else %}Vehicle-crash dataset{% endif %} |
-| [**Shen, J., et al.** (2025). A unified experimental framework for estimating collision rates and occupant injury severity across different levels of driving automation. *Accident Analysis & Prevention, 223*, 108273. https://doi.org/10.1016/j.aap.2025.108273](https://doi.org/10.1016/j.aap.2025.108273) | {% if page.resources.experimental_dataset and page.resources.experimental_dataset != "" %}[Experimental dataset]({{ page.resources.experimental_dataset }}){% else %}Experimental dataset (preparing release){% endif %} |
-
----
-
-## Background
-
-The rapid development of intelligent vehicles is reshaping how road safety is assessed and managed. **A comprehensive safety framework requires intelligent vehicles to understand, as humans do, how risk develops, how severe the resulting impact may be, and what consequences different outcomes may have for occupants.** Addressing this problem requires integrating human risk perception, post-crash occupant injury severity evaluation, and injury-risk-minimizing safety decision-making within a unified framework. The objective of our research is to establish a human-centered representation of driving risk that connects traffic-level interactions with vehicle-level collision dynamics and occupant-level injury outcomes, thereby providing a quantitative basis for automated-driving decision support and safety assessment.
-
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/background.jpg" title="Temporal evolution of risk in hazardous scenarios" class="img-fluid rounded z-depth-1" %} 
+    <div class="research-flow">
+      <span>Risk perception</span>
+      <span>Physics-informed assessment</span>
+      <span>Injury prediction</span>
+      <span>Safety evaluation &amp; decision making</span>
     </div>
-</div>
-<div class="caption">
-    Temporal evolution of risk in hazardous scenarios
+  </div>
+</section>
+
+<div class="research-metrics">
+  <div class="metric-card">
+    <div class="metric-value">5</div>
+    <div class="metric-title">Driver-attention datasets</div>
+    <div class="metric-note">Four datasets for joint training and one held-out dataset for cross-domain evaluation.</div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-value">85.4%</div>
+    <div class="metric-title">Head-injury prediction accuracy</div>
+    <div class="metric-note">Near-real-time prediction requiring only 1.2 ± 0.4 ms per case.</div>
+  </div>
+
+  <div class="metric-card">
+    <div class="metric-value">1,859</div>
+    <div class="metric-title">Safety-critical interactions</div>
+    <div class="metric-note">30 participants and 337 collisions in the unified automation-level evaluation.</div>
+  </div>
 </div>
 
----
+<nav class="research-subnav" aria-label="Research page sections">
+  <a href="#overview">Overview</a>
+  <a href="#risk-perception">Risk Perception</a>
+  <a href="#injury-prediction">Injury Prediction</a>
+  <a href="#safety-evaluation">Safety Evaluation</a>
+  <a href="#publications-data">Publications &amp; Data</a>
+</nav>
 
-## 1. [Human-centered risk perception](https://doi.org/10.1109/TITS.2022.3177640)
+
+<section id="overview" class="research-overview">
+  <div class="overview-copy">
+    <h2>Overview</h2>
+
+    <div class="overview-objective">
+      <strong>Research objective.</strong>
+      We develop human-centered methods that integrate
+      <strong>risk perception, physics-informed risk assessment, occupant injury severity prediction, and injury-aware decision making</strong>,
+      bridging pre-crash collision avoidance with in-crash injury mitigation to support safer and more integrated intelligent vehicle safety systems.
+    </div>
+
+    <p>
+      The rapid development of intelligent vehicles is reshaping how road safety is assessed and managed.
+      A comprehensive safety framework requires intelligent vehicles to understand, as humans do, how risk develops,
+      how severe the resulting impact may be, and what consequences different outcomes may have for occupants.
+      Our research therefore connects traffic-level interactions with vehicle-level collision dynamics and occupant-level injury outcomes,
+      providing a quantitative basis for automated-driving decision support and safety assessment.
+    </p>
+  </div>
+
+  <div class="overview-flow-card">
+    <div class="overview-flow">
+      <div class="step">Risk<br>Perception</div>
+      <div class="arrow">→</div>
+      <div class="step">Injury<br>Prediction</div>
+      <div class="arrow">→</div>
+      <div class="step">Safety Evaluation<br>&amp; Decision Making</div>
+    </div>
+  </div>
+</section>
+
+
+<section id="risk-perception" class="research-section" markdown="1">
+
+<div class="section-heading">
+  <div class="section-number">01</div>
+  <div>
+    <h2><a href="https://doi.org/10.1109/TITS.2022.3177640">Human-centered risk perception</a></h2>
+    <p class="section-lead">Model how human drivers perceive and prioritize latent risks across heterogeneous and interactive traffic scenes.</p>
+    <div class="section-stats">
+      <span>5 public datasets</span>
+      <span>Cross-domain attention prediction</span>
+      <span>Held-out PSAD evaluation</span>
+    </div>
+  </div>
+</div>
 
 ### 1.1 Framework
 
@@ -136,10 +660,24 @@ The model was jointly trained on four public driver-attention datasets — **BDD
   Driver gaze saliency based on model prediction
 </div>
 
----
+</section>
 
 
-## 2. [Occupant injury severity prediction](https://doi.org/10.1016/j.aap.2021.106149)
+<section id="injury-prediction" class="research-section" markdown="1">
+
+<div class="section-heading">
+  <div class="section-number">02</div>
+  <div>
+    <h2><a href="https://doi.org/10.1016/j.aap.2021.106149">Occupant injury severity prediction</a></h2>
+    <p class="section-lead">Predict occupant injury severity from crash dynamics, occupant characteristics, and restraint conditions with near-real-time computation.</p>
+    <div class="section-stats">
+      <span>28,000 numerical cases</span>
+      <span>85.4% head-injury accuracy</span>
+      <span>1.2 ± 0.4 ms inference</span>
+      <span>192 real-world validation cases</span>
+    </div>
+  </div>
+</div>
 
 Accurate prediction of occupant injury severity is an important component of integrated vehicle safety, providing quantitative injury information for both pre-crash trajectory planning and in-crash occupant protection. However, occupant injury is governed by complex interactions among vehicle crash dynamics, occupant characteristics, and restraint conditions, making rapid and reliable injury assessment challenging. To address this problem, We first established a large-scale numerical crash database covering diverse frontal impact conditions, with a particular focus on occupant kinematic and biomechanical responses. Deep learning architectures were initially employed to learn the nonlinear relationship between crash dynamics and occupant injury outcomes. To support near-real-time applications, we subsequently extracted compact and physically interpretable kinematic features from vehicle crash pulses and combined them with low-complexity machine-learning models. This substantially reduced computational cost while maintaining reliable injury prediction performance.
 
@@ -186,11 +724,24 @@ The RNN-based injury severity prediction model adopted a conventional encoder–
 
 On the numerical dataset, the final model predicted head injury severity with an accuracy of **85.4%**. To examine whether this performance transfers beyond simulation, the model was further evaluated on an independent dataset of **192 real-world collisions**. Considering the heterogeneity between the numerical database and real-world crash records, the model was retrained on this dataset and assessed using five-fold cross-validation, yielding an accuracy of **78.7%**, a precision of 0.636, a recall of 0.787, and an AUC of 0.698. The moderate decrease relative to the numerical dataset reflects the greater variability of real-world crash conditions, yet the model still recovers the dominant relationship between crash pulse, occupant characteristics, and injury outcome. Crucially, prediction requires only about **1.2 ± 0.4 ms** per case, which is several orders of magnitude faster than finite element simulation and therefore fast enough to inform occupant protection decisions within the crash itself.
 
+</section>
 
 
+<section id="safety-evaluation" class="research-section" markdown="1">
 
-
-## 3. [Safety performance evaluation and injury-aware decision making](https://doi.org/10.1016/j.aap.2025.108273)
+<div class="section-heading">
+  <div class="section-number">03</div>
+  <div>
+    <h2><a href="https://doi.org/10.1016/j.aap.2025.108273">Safety performance evaluation and injury-aware decision making</a></h2>
+    <p class="section-lead">Evaluate automated-driving safety by jointly considering collision occurrence and occupant injury severity under standardized safety-critical scenarios.</p>
+    <div class="section-stats">
+      <span>30 participants</span>
+      <span>1,859 interactions</span>
+      <span>337 collisions</span>
+      <span>SAE L0/L2/L3/L4 comparison</span>
+    </div>
+  </div>
+</div>
 
 ### 3.1 Experimental framework
 Existing real-world datasets for evaluating the safety protection performance of automated vehicles differ substantially from those of conventional vehicles in terms of accumulated mileage, crash types, and other characteristics, making direct comparisons across manufacturers and levels of driving automation difficult. To address this issue, we developed a unified driving-simulator-based framework for evaluating the safety protection performance of automated vehicles. The framework integrates automated vehicle models at different levels of automation, an accelerated generation algorithm for highway safety-critical scenarios, and a data-driven occupant injury quantification model, enabling comprehensive and fair comparisons under standardized crash conditions, consistent levels of scenario urgency, and unified evaluation metrics.
@@ -238,5 +789,23 @@ The results show that **a lower collision rate does not necessarily translate di
 
 The current published framework establishes the experimental and quantitative basis for injury-aware decision support. A fully closed-loop controller that directly optimizes automated-driving trajectories using predicted injury outcomes is an ongoing research direction.
 
+</section>
 
 
+<section id="publications-data" class="resources-section" markdown="1">
+
+## Publications & Open Resources
+
+<p class="resources-intro">
+The publications below provide the methodological details underlying the three research modules. Public code and datasets are linked where available.
+</p>
+
+| Paper | Data & Code |
+| :--- | :---: |
+| [**Gan, S., et al.** (2022). Multisource Adaption for Driver Attention Prediction in Arbitrary Driving Scenes. *IEEE Transactions on Intelligent Transportation Systems, 23*(11), 20912–20925. https://doi.org/10.1109/TITS.2022.3177640](https://doi.org/10.1109/TITS.2022.3177640) | {% if page.resources.ada_code and page.resources.ada_code != "" %}[ADA code]({{ page.resources.ada_code }}){% else %}ADA code{% endif %} |
+| [**Wang, Q., et al.** (2021). A data-driven, kinematic feature-based, near real-time algorithm for injury severity prediction of vehicle occupants. *Accident Analysis & Prevention, 156*, 106149. https://doi.org/10.1016/j.aap.2021.106149](https://doi.org/10.1016/j.aap.2021.106149) | {% if page.resources.vehicle_crash_database and page.resources.vehicle_crash_database != "" %}[Vehicle-crash dataset]({{ page.resources.vehicle_crash_database }}){% else %}Vehicle-crash dataset{% endif %} |
+| [**Shen, J., et al.** (2025). A unified experimental framework for estimating collision rates and occupant injury severity across different levels of driving automation. *Accident Analysis & Prevention, 223*, 108273. https://doi.org/10.1016/j.aap.2025.108273](https://doi.org/10.1016/j.aap.2025.108273) | {% if page.resources.experimental_dataset and page.resources.experimental_dataset != "" %}[Experimental dataset]({{ page.resources.experimental_dataset }}){% else %}Experimental dataset (preparing release){% endif %} |
+
+</section>
+
+</div>
