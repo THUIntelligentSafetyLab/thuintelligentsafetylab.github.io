@@ -1010,9 +1010,9 @@ We developed a metric (**unified safety benefit**) that evaluates automated-driv
 
 The results show that **a lower collision rate does not necessarily translate directly into a proportionally higher overall safety benefit**. In the experiment, **Level 3 automation reduced collision occurrence relative to Level 2 but exhibited higher injury severity when collisions occurred, resulting in comparable unified safety benefits**. Level 4 achieved a higher overall safety benefit primarily through a lower collision rate, while the reduction in residual-collision injury severity was more limited. 
 
-### 3.3 Human-informed decision making
+### 3.4 Human-informed decision making
 
-The current published framework establishes the experimental and quantitative basis for injury-aware decision support. A fully closed-loop controller that directly optimizes automated-driving trajectories using predicted injury outcomes is an ongoing research direction.
+The current published framework establishes the experimental and quantitative basis for human-informed decision support. A fully closed-loop controller that directly optimizes automated-driving trajectories using predicted injury outcomes is an ongoing research direction.
 
   </div>
 
