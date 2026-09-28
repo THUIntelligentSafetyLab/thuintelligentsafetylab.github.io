@@ -693,7 +693,7 @@ resources:
 
 <section class="research-hero">
   <div class="research-hero-inner">
-    <div class="research-eyebrow">Human-centered autonomous vehicle safety</div>
+    <div class="research-eyebrow">Autonomous vehicle safety research</div>
     <h1>Human-centered Risk Assessment &amp; Decision Making of Autonomous Vehicle</h1>
     <p>
       We integrate human risk perception, physics-informed risk assessment,
