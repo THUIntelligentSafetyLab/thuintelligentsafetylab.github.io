@@ -367,6 +367,198 @@ resources:
   background: #fff;
 }
 
+
+/* =========================================================
+   Paper layout: compact image gallery + text
+   ========================================================= */
+
+.paper-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  gap: 38px;
+  align-items: start;
+  margin-top: 24px;
+}
+
+.paper-layout.gallery-right {
+  grid-template-columns: minmax(0, 1.22fr) minmax(280px, 0.78fr);
+}
+
+.paper-layout.gallery-right .paper-gallery {
+  order: 2;
+  justify-self: end;
+}
+
+.paper-layout.gallery-right .paper-copy {
+  order: 1;
+}
+
+.paper-copy {
+  min-width: 0;
+}
+
+.paper-copy h3:first-child {
+  margin-top: 0;
+}
+
+/* Gallery stays compact and follows the text while reading */
+.paper-gallery {
+  width: 100%;
+  max-width: 430px;
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+.gallery-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 300px;
+  padding: 12px;
+  overflow: hidden;
+  border: 1px solid var(--rd-border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(33, 25, 48, 0.06);
+}
+
+.gallery-main img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 8px;
+  box-shadow: none !important;
+}
+
+.gallery-caption {
+  min-height: 38px;
+  margin: 9px 2px 10px;
+  color: #858394;
+  font-size: 11.5px;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.gallery-thumbs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 2px 1px 5px;
+  scrollbar-width: thin;
+}
+
+.gallery-thumb {
+  flex: 0 0 72px;
+  width: 72px;
+  height: 54px;
+  padding: 3px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid var(--rd-border);
+  border-radius: 8px;
+  background: #fff;
+  opacity: 0.72;
+  transition:
+    opacity 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.gallery-thumb:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.gallery-thumb.active {
+  opacity: 1;
+  border-color: var(--rd-purple);
+  box-shadow: 0 0 0 2px rgba(91, 33, 182, 0.10);
+}
+
+.gallery-thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+  box-shadow: none !important;
+}
+
+/* Narrow table used only for the automation-level safety-benefit result */
+.safety-benefit-table {
+  width: min(100%, 680px);
+  margin: 16px auto 24px;
+}
+
+.safety-benefit-table table {
+  width: 100% !important;
+  margin: 0 !important;
+  font-size: 12.8px;
+}
+
+.safety-benefit-table th,
+.safety-benefit-table td {
+  padding: 9px 10px !important;
+}
+
+.safety-benefit-table th:first-child,
+.safety-benefit-table td:first-child {
+  white-space: nowrap;
+}
+
+/* Tablet/mobile */
+@media (max-width: 900px) {
+  .paper-layout,
+  .paper-layout.gallery-right {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .paper-layout.gallery-right .paper-gallery,
+  .paper-layout.gallery-right .paper-copy {
+    order: initial;
+  }
+
+  .paper-gallery {
+    position: static;
+    max-width: 620px;
+    justify-self: center !important;
+  }
+
+  .gallery-main {
+    height: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .gallery-main {
+    height: 250px;
+  }
+
+  .gallery-thumb {
+    flex-basis: 64px;
+    width: 64px;
+    height: 48px;
+  }
+
+  .safety-benefit-table {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .safety-benefit-table table {
+    min-width: 600px;
+  }
+}
+
+
 /* Tables */
 .research-detail-page table {
   width: 100%;
@@ -511,9 +703,9 @@ resources:
 
     <div class="research-flow">
       <span>Risk perception</span>
-      <span>Physics-informed assessment</span>
-      <span>Injury prediction</span>
-      <span>Safety evaluation &amp; decision making</span>
+      <span>Injury severity prediction</span>
+      <span>Safety evaluation</span>
+      <span>Decision making</span>
     </div>
   </div>
 </section>
@@ -583,20 +775,64 @@ resources:
       <span>Held-out PSAD evaluation</span>
     </div>
   </div>
-</div>
+
+<div class="paper-layout">
+
+  <aside class="paper-gallery" data-gallery="gan-2022">
+    <div class="gallery-main">
+      <img
+        src="{{ '/assets/img/Research_1/paper_gan_2022_1.jpg' | relative_url }}"
+        alt="Illustration of adaptive driver attention prediction in different driving scenes collected from multiple datasets"
+      >
+    </div>
+
+    <div class="gallery-caption">
+      Illustration of adaptive driver attention prediction in different driving scenes collected from multiple datasets
+    </div>
+
+    <div class="gallery-thumbs">
+      <button type="button" class="gallery-thumb active"
+        data-src="{{ '/assets/img/Research_1/paper_gan_2022_1.jpg' | relative_url }}"
+        data-caption="Illustration of adaptive driver attention prediction in different driving scenes collected from multiple datasets"
+        aria-label="Show driver-attention dataset illustration">
+        <img src="{{ '/assets/img/Research_1/paper_gan_2022_1.jpg' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb"
+        data-src="{{ '/assets/img/Research_1/paper_gan_2022.jpg' | relative_url }}"
+        data-caption="Overview of the Adaptive Driver Attention framework"
+        aria-label="Show Adaptive Driver Attention framework">
+        <img src="{{ '/assets/img/Research_1/paper_gan_2022.jpg' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb"
+        data-src="{{ '/assets/img/Research_1/paper_gan_2022_2.jpg' | relative_url }}"
+        data-caption="Qualitative evaluation on four driver-attention datasets"
+        aria-label="Show qualitative evaluation">
+        <img src="{{ '/assets/img/Research_1/paper_gan_2022_2.jpg' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb"
+        data-src="{{ '/assets/img/Research_1/paper_gan_2022_5.gif' | relative_url }}"
+        data-caption="Driver gaze saliency based on model prediction — example 1"
+        aria-label="Show gaze saliency example 1">
+        <img src="{{ '/assets/img/Research_1/paper_gan_2022_5.gif' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb"
+        data-src="{{ '/assets/img/Research_1/paper_gan_2022_7.gif' | relative_url }}"
+        data-caption="Driver gaze saliency based on model prediction — example 2"
+        aria-label="Show gaze saliency example 2">
+        <img src="{{ '/assets/img/Research_1/paper_gan_2022_7.gif' | relative_url }}" alt="">
+      </button>
+    </div>
+  </aside>
+
+  <div class="paper-copy" markdown="1">
 
 ### 1.1 Framework
 
 Human drivers do not process all visual information equally. Their attention is selectively allocated to traffic elements that are relevant to the current driving task, including interacting road users and potential hazards. Understanding this process provides an important behavioral basis for human-centered intelligent driving systems.
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/paper_gan_2022_1.jpg" title="Illustration of adaptive driver attention prediction in different driving scenes collected from multiple datasets" class="img-fluid rounded z-depth-1" %} 
-    </div>
-</div>
-<div class="caption">
-    Illustration of adaptive driver attention prediction in different driving scenes collected from multiple datasets
-</div>
 
 ### 1.2 Methods
 
@@ -605,64 +841,14 @@ We developed an **Adaptive Driver Attention (ADA)** model to predict driver visu
 - **Bottom-up attention**, in which salient visual stimuli attract attention automatically.
 - **Top-down attention**, in which drivers adjust perceptual priorities according to the current driving task and traffic context.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/paper_gan_2022.jpg" title="Overview of Adaptive Driver Attention" class="img-fluid rounded z-depth-1" %} 
-    </div>
-</div>
-<div class="caption">
-    Overview of Adaptive Driver Attention. The gray blocks refer to generic modules for all datasets; the gray blocks with red border lines depict that the domain-specific batch normalization was embedded into the generic module; the colored blocks refer to adaptive modules for specific datasets
-</div>
-
 The ADA framework combines generic feature encoders with scene-adaptive attention modules to reproduce human-like perceptual patterns while addressing substantial domain shifts among driver-attention datasets. The model incorporates **domain-specific batch normalization, Gaussian priors, smoothing filters, spatial attention, channel attention, and domain-specific focal loss** to mitigate heterogeneity arising from different video sources, gaze-collection protocols, scene distributions, and saliency-map generation procedures.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/paper_gan_2022_2.jpg" title="Qualitative evaluation on four driver attention datasets" class="img-fluid rounded z-depth-1" %} 
-    </div>
-</div>
-<div class="caption">
-    Qualitative evaluation on four driver attention datasets
-</div>
-
 ### 1.3 Results
+
 The model was jointly trained on four public driver-attention datasets — **BDD-A, DADA-2000, DReyeVE, and EyeTrack** — and further evaluated on **PSAD**, which was not used for joint training. The results show that the model can generalize across heterogeneous traffic scenes and reproduce characteristic human attention patterns in cruising, turning, conflict, and accident-related situations. Importantly, the predicted attention maps can shift toward **latent conflict regions and relevant interacting vehicles**, providing a basis for identifying where human drivers are likely to allocate attention before and during safety-critical events.
 
-<div style="
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-  width: 100%;
-  max-width: 900px;
-  margin: 24px auto 0 auto;
-">
+  </div>
 
-  <img
-    src="{{ '/assets/img/Research_1/paper_gan_2022_5.gif' | relative_url }}"
-    alt="Driver gaze saliency prediction example 1"
-    style="
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-    "
-  >
-
-  <img
-    src="{{ '/assets/img/Research_1/paper_gan_2022_7.gif' | relative_url }}"
-    alt="Driver gaze saliency prediction example 3"
-    style="
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-    "
-  >
-
-</div>
-
-<div class="caption" style="text-align: center; margin-top: 12px;">
-  Driver gaze saliency based on model prediction
 </div>
 
 </section>
@@ -682,52 +868,70 @@ The model was jointly trained on four public driver-attention datasets — **BDD
       <span>192 real-world validation cases</span>
     </div>
   </div>
-</div>
+
+<div class="paper-layout gallery-right">
+
+  <aside class="paper-gallery" data-gallery="wang-2021">
+    <div class="gallery-main">
+      <img
+        src="{{ '/assets/img/Research_1/paper_wang_2021_1.png' | relative_url }}"
+        alt="Technical framework of near real-time occupant injury prediction"
+      >
+    </div>
+
+    <div class="gallery-caption">
+      Technical framework of near real-time occupant injury prediction
+    </div>
+
+    <div class="gallery-thumbs">
+      <button type="button" class="gallery-thumb active"
+        data-src="{{ '/assets/img/Research_1/paper_wang_2021_1.png' | relative_url }}"
+        data-caption="Technical framework of near real-time occupant injury prediction"
+        aria-label="Show injury prediction framework">
+        <img src="{{ '/assets/img/Research_1/paper_wang_2021_1.png' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb"
+        data-src="{{ '/assets/img/Research_1/paper_wang_2021_2.png' | relative_url }}"
+        data-caption="Ratios of cases with different AIS levels in the numerical database"
+        aria-label="Show AIS-level distribution">
+        <img src="{{ '/assets/img/Research_1/paper_wang_2021_2.png' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb"
+        data-src="{{ '/assets/img/Research_1/paper_wang_2021.png' | relative_url }}"
+        data-caption="Optimized architectures of RNN and CNN"
+        aria-label="Show optimized RNN and CNN architectures">
+        <img src="{{ '/assets/img/Research_1/paper_wang_2021.png' | relative_url }}" alt="">
+      </button>
+    </div>
+  </aside>
+
+  <div class="paper-copy" markdown="1">
 
 Accurate prediction of occupant injury severity is an important component of integrated vehicle safety, providing quantitative injury information for both pre-crash trajectory planning and in-crash occupant protection. However, occupant injury is governed by complex interactions among vehicle crash dynamics, occupant characteristics, and restraint conditions, making rapid and reliable injury assessment challenging. To address this problem, We first established a large-scale numerical crash database covering diverse frontal impact conditions, with a particular focus on occupant kinematic and biomechanical responses. Deep learning architectures were initially employed to learn the nonlinear relationship between crash dynamics and occupant injury outcomes. To support near-real-time applications, we subsequently extracted compact and physically interpretable kinematic features from vehicle crash pulses and combined them with low-complexity machine-learning models. This substantially reduced computational cost while maintaining reliable injury prediction performance.
 
-### 2.1 Framework 
-The study first used sequence models to learn the nonlinear relationship between vehicle crash pulses and occupant kinematic responses. A convolutional neural network achieved high prediction performance but remained too computationally expensive for time-critical onboard applications. To reduce model complexity, network visualization was used to examine how the high-accuracy model processed crash-pulse information. A two-layer pooling procedure then compressed the original **120-dimensional crash pulse into three kinematic features**. These features were combined with occupant and restraint information in a lightweight machine-learning model. 
+### 2.1 Framework
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/paper_wang_2021_1.png" title="Technical framework of near real-time occupant injury prediction" class="img-fluid rounded z-depth-1" %} 
-    </div>
-</div>
-<div class="caption">
-    Technical framework of near real-time occupant injury prediction
-</div>
+The study first used sequence models to learn the nonlinear relationship between vehicle crash pulses and occupant kinematic responses. A convolutional neural network achieved high prediction performance but remained too computationally expensive for time-critical onboard applications. To reduce model complexity, network visualization was used to examine how the high-accuracy model processed crash-pulse information. A two-layer pooling procedure then compressed the original **120-dimensional crash pulse into three kinematic features**. These features were combined with occupant and restraint information in a lightweight machine-learning model.
 
 ### 2.2 Dataset
+
 The efficiency of the occupant injury prediction algorithm depends largely on the quality of the database, which is used for training and validation. A large-scale numerical database containing **28,000 frontal collision cases** was constructed by combining finite-element, multi-body, and lumped-parameter simulation models. The database covers occupant kinetics and injury responses with variations in vehicle crash pulse, occupant gender, and restraint configuration. Vehicle crash pulses with delta-v ranging from 40 km/h to 60 km/h with an interval of 10 km/h, and impact angles ranging from -20◦ to 10◦ with an interval of 10◦ were obtained from FE simulations.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/paper_wang_2021_2.png" title="Ratios of cases with different AIS levels in the numerical database" class="img-fluid rounded z-depth-1" %} 
-    </div>
-</div>
-<div class="caption">
-    Ratios of cases with different AIS levels in the numerical database
-</div>
-
-We also constructed a small-sized dataset of real-world MVCs to further validate the developed injury prediction model’s performance by screening vehicle crash cases from the National Automotive Sampling System/Crashworthiness Data System (NASS/CDS).  We then excluded crash cases with multiple impacts or with vehicle body types differing from the sedan model used in the numerical database, such as pickup, utility, and van. Finally, the validation dataset contained **192 frontal collision cases** with occupant injury AIS levels for the head, neck, and chest ranging from 0 to 6. Both the numerical training database and the real-world validation dataset are available.
-
+We also constructed a small-sized dataset of real-world MVCs to further validate the developed injury prediction model’s performance by screening vehicle crash cases from the National Automotive Sampling System/Crashworthiness Data System (NASS/CDS). We then excluded crash cases with multiple impacts or with vehicle body types differing from the sedan model used in the numerical database, such as pickup, utility, and van. Finally, the validation dataset contained **192 frontal collision cases** with occupant injury AIS levels for the head, neck, and chest ranging from 0 to 6. Both the numerical training database and the real-world validation dataset are available.
 
 ### 2.3 Methods
-The RNN-based injury severity prediction model adopted a conventional encoder–decoder architecture with long short-term memory (LSTM) units, whereas the CNN-based model employed a temporal convolutional network (TCN) with causal and dilated convolutions to capture temporal dependencies using only past information. The models took vehicle crash pulses, occupant gender, and seatbelt and airbag use as inputs and predicted occupant kinematic and biomechanical responses, including head acceleration, chest displacement, neck force, and neck moment, which were subsequently converted into AIS injury levels. All input variables were embedded into high-dimensional representations through lookup tables before being fed into the hidden layers. Both models were trained using the adaptive moment estimation (Adam) optimizer with learning-rate decay. To reduce overfitting, we applied L2 regularization, dropout in the input and intermediate layers, and early stopping when the validation loss increased for five consecutive epochs. Hyperparameters for both models were selected using grid search.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/paper_wang_2021.png" title="Optimized architectures of RNN and CNN" class="img-fluid rounded z-depth-1" %} 
-    </div>
-</div>
-<div class="caption">
-    Optimized architectures of RNN and CNN
-</div>
+The RNN-based injury severity prediction model adopted a conventional encoder–decoder architecture with long short-term memory (LSTM) units, whereas the CNN-based model employed a temporal convolutional network (TCN) with causal and dilated convolutions to capture temporal dependencies using only past information. The models took vehicle crash pulses, occupant gender, and seatbelt and airbag use as inputs and predicted occupant kinematic and biomechanical responses, including head acceleration, chest displacement, neck force, and neck moment, which were subsequently converted into AIS injury levels. All input variables were embedded into high-dimensional representations through lookup tables before being fed into the hidden layers. Both models were trained using the adaptive moment estimation (Adam) optimizer with learning-rate decay. To reduce overfitting, we applied L2 regularization, dropout in the input and intermediate layers, and early stopping when the validation loss increased for five consecutive epochs. Hyperparameters for both models were selected using grid search.
 
 ### 2.4 Results
 
 On the numerical dataset, the final model predicted head injury severity with an accuracy of **85.4%**. To examine whether this performance transfers beyond simulation, the model was further evaluated on an independent dataset of **192 real-world collisions**. Considering the heterogeneity between the numerical database and real-world crash records, the model was retrained on this dataset and assessed using five-fold cross-validation, yielding an accuracy of **78.7%**, a precision of 0.636, a recall of 0.787, and an AUC of 0.698. The moderate decrease relative to the numerical dataset reflects the greater variability of real-world crash conditions, yet the model still recovers the dominant relationship between crash pulse, occupant characteristics, and injury outcome. Crucially, prediction requires only about **1.2 ± 0.4 ms** per case, which is several orders of magnitude faster than finite element simulation and therefore fast enough to inform occupant protection decisions within the crash itself.
+
+  </div>
+
+</div>
 
 </section>
 
@@ -746,53 +950,72 @@ On the numerical dataset, the final model predicted head injury severity with an
       <span>SAE L0/L2/L3/L4 comparison</span>
     </div>
   </div>
-</div>
+
+<div class="paper-layout">
+
+  <aside class="paper-gallery" data-gallery="shen-2025">
+    <div class="gallery-main">
+      <img
+        src="{{ '/assets/img/Research_1/paper_shen_2025_1.jpg' | relative_url }}"
+        alt="Highway simulated safety-critical scenarios and experimental procedure"
+      >
+    </div>
+
+    <div class="gallery-caption">
+      Highway simulated safety-critical scenarios and experimental procedure
+    </div>
+
+    <div class="gallery-thumbs">
+      <button type="button" class="gallery-thumb active"
+        data-src="{{ '/assets/img/Research_1/paper_shen_2025_1.jpg' | relative_url }}"
+        data-caption="Highway simulated safety-critical scenarios and experimental procedure"
+        aria-label="Show experimental framework">
+        <img src="{{ '/assets/img/Research_1/paper_shen_2025_1.jpg' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb"
+        data-src="{{ '/assets/img/Research_1/paper_shen_2025_4.jpg' | relative_url }}"
+        data-caption="Distribution of safety performance evaluation datasets across different levels of driving automation"
+        aria-label="Show safety-evaluation dataset distribution">
+        <img src="{{ '/assets/img/Research_1/paper_shen_2025_4.jpg' | relative_url }}" alt="">
+      </button>
+    </div>
+  </aside>
+
+  <div class="paper-copy" markdown="1">
 
 ### 3.1 Experimental framework
+
 Existing real-world datasets for evaluating the safety protection performance of automated vehicles differ substantially from those of conventional vehicles in terms of accumulated mileage, crash types, and other characteristics, making direct comparisons across manufacturers and levels of driving automation difficult. To address this issue, we developed a unified driving-simulator-based framework for evaluating the safety protection performance of automated vehicles. The framework integrates automated vehicle models at different levels of automation, an accelerated generation algorithm for highway safety-critical scenarios, and a data-driven occupant injury quantification model, enabling comprehensive and fair comparisons under standardized crash conditions, consistent levels of scenario urgency, and unified evaluation metrics.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/paper_shen_2025_1.jpg" title="Highway simulated safety-critical scenarios and experimental procedure" class="img-fluid rounded z-depth-1" %} 
-    </div>
-</div>
-<div class="caption">
-    Highway simulated safety-critical scenarios and experimental procedure
-</div>
-
-The framework uses a high-fidelity driving simulator and parameterized hazard-triggering algorithms to generate three representative highway conflict types: Braking (a leading vehicle performs sudden emergency braking), Cut-in (a surrounding vehicle abruptly enters the ego vehicle's lane), and Merging (a surrounding vehicle competes for the ego vehicle's target lane during a lane change). The study finally collected 30 valid participants and 1,859 safety-critical vehicle interactions which contains 337 collisions. The unified experimental framework records the progression from normal driving through hazard triggering, decision making, driver intervention or disengagement, collision avoidance, and collision. 
-
-<div class="row justify-content-sm-center">
-    <div class="col-sm-10 mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Research_1/paper_shen_2025_4.jpg" title="Distribution of safety performance evaluation datasets across different levels of driving automation" class="img-fluid rounded z-depth-1" %} 
-    </div>
-</div>
-<div class="caption">
-    Distribution of safety performance evaluation datasets across different levels of driving automation
-</div>
-
-
+The framework uses a high-fidelity driving simulator and parameterized hazard-triggering algorithms to generate three representative highway conflict types: Braking (a leading vehicle performs sudden emergency braking), Cut-in (a surrounding vehicle abruptly enters the ego vehicle's lane), and Merging (a surrounding vehicle competes for the ego vehicle's target lane during a lane change). The study finally collected 30 valid participants and 1,859 safety-critical vehicle interactions which contains 337 collisions. The unified experimental framework records the progression from normal driving through hazard triggering, decision making, driver intervention or disengagement, collision avoidance, and collision.
 
 ### 3.2 Safety performance evaluation
 
 Vehicle safety is often assessed primarily by crash rate. These indicators are necessary but incomplete: they do not describe the consequences for vehicle occupants when collision avoidance fails. We therefore developed a metric (**unified safety benefit**) that evaluates automated-driving safety through both **collision occurrence and occupant injury severity** under comparable safety-critical scenarios.
 
-
 Vehicles representing **attentive manual driving (selective SAE L0), SAE L2, L3, and L4 automation** were evaluated under comparable road scenarios, similar urgency levels, and consistent metrics. Under the designed safety-critical scenarios, the study reported:
 
-| Automation level | Collision rate | Probability of severe occupant injury | Unified safety benefit
+<div class="safety-benefit-table" markdown="1">
+
+| Automation level | Collision rate | Probability of severe occupant injury | Unified safety benefit |
 | --- | ---: | ---: | ---: |
 | selective L0 | 12.6% | 8.6% | 94.0% |
 | L2 | 24.3% | 11.1% | 90.0% |
 | L3 | 21.4% | 21.6% | 89.0% |
 | L4 | 14.1% | 9.2% | 95.0% |
 
-The results show that **a lower collision rate does not necessarily translate directly into a proportionally higher overall safety benefit**. In the experiment, Level 3 automation reduced collision occurrence relative to Level 2 but exhibited higher injury severity when collisions occurred, resulting in comparable unified safety benefits. Level 4 achieved a higher overall safety benefit primarily through a lower collision rate, while the reduction in residual-collision injury severity was more limited. Therefore, collision avoidance is necessary, but collision avoidance alone is not sufficient to characterize the safety performance of an automated vehicle.
+</div>
 
+The results show that **a lower collision rate does not necessarily translate directly into a proportionally higher overall safety benefit**. In the experiment, Level 3 automation reduced collision occurrence relative to Level 2 but exhibited higher injury severity when collisions occurred, resulting in comparable unified safety benefits. Level 4 achieved a higher overall safety benefit primarily through a lower collision rate, while the reduction in residual-collision injury severity was more limited. Therefore, collision avoidance is necessary, but collision avoidance alone is not sufficient to characterize the safety performance of an automated vehicle.
 
 ### 3.3 Injury-aware decision making
 
 The current published framework establishes the experimental and quantitative basis for injury-aware decision support. A fully closed-loop controller that directly optimizes automated-driving trajectories using predicted injury outcomes is an ongoing research direction.
+
+  </div>
+
+</div>
 
 </section>
 
@@ -812,5 +1035,37 @@ The publications below provide the methodological details underlying the three r
 | [**Shen, J., et al.** (2025). A unified experimental framework for estimating collision rates and occupant injury severity across different levels of driving automation. *Accident Analysis & Prevention, 223*, 108273. https://doi.org/10.1016/j.aap.2025.108273](https://doi.org/10.1016/j.aap.2025.108273) | {% if page.resources.experimental_dataset and page.resources.experimental_dataset != "" %}[Experimental dataset]({{ page.resources.experimental_dataset }}){% else %}Experimental dataset (preparing release){% endif %} |
 
 </section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".paper-gallery").forEach(function (gallery) {
+    const mainImage = gallery.querySelector(".gallery-main img");
+    const caption = gallery.querySelector(".gallery-caption");
+    const thumbs = gallery.querySelectorAll(".gallery-thumb");
+
+    thumbs.forEach(function (thumb) {
+      thumb.addEventListener("click", function () {
+        const nextSrc = thumb.dataset.src;
+        const nextCaption = thumb.dataset.caption || "";
+
+        if (nextSrc) {
+          mainImage.src = nextSrc;
+          mainImage.alt = nextCaption;
+        }
+
+        caption.textContent = nextCaption;
+
+        thumbs.forEach(function (item) {
+          item.classList.remove("active");
+        });
+
+        thumb.classList.add("active");
+      });
+    });
+  });
+});
+</script>
+
 
 </div>
