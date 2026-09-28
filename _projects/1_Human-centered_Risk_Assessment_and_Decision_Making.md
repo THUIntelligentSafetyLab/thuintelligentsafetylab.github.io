@@ -712,14 +712,15 @@ resources:
 
 <div class="research-metrics">
   <div class="metric-card">
-    <div class="metric-value">5</div>
-    <div class="metric-title">Driver-attention datasets</div>
-    <div class="metric-note">Four datasets for joint training and one held-out dataset for cross-domain evaluation.</div>
+    <div class="metric-value">Domain-Adaptive</div>
+    <div class="metric-title">Driver attention prediction model</div>
+    <div class="metric-note">Jointly trained on four driver attention datasets, our model outperforms state-of-the-art methods on seven metrics.
+</div>
   </div>
 
   <div class="metric-card">
     <div class="metric-value">85.4%</div>
-    <div class="metric-title">Head-injury prediction accuracy</div>
+    <div class="metric-title">Head-injury severity prediction accuracy</div>
     <div class="metric-note">Near-real-time prediction requiring only 1.2 ± 0.4 ms per case.</div>
   </div>
 
