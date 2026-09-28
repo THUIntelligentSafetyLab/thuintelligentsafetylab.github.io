@@ -49,7 +49,7 @@ resources:
   border-radius: 22px;
   background: #fff;
   /* 背景图透明度：0 = 完全透明，1 = 完全不透明 */
-  --hero-img-opacity: 0.6;
+  --hero-img-opacity: 0.9;
 }
 
 /* 背景图层 */
