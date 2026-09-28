@@ -47,13 +47,32 @@ resources:
   margin: 10px 0 22px;
   border: 1px solid var(--rd-border);
   border-radius: 22px;
-  background:
-    linear-gradient(90deg,
-      rgba(255,255,255,0.99) 0%,
-      rgba(255,255,255,0.97) 40%,
-      rgba(255,255,255,0.72) 62%,
-      rgba(255,255,255,0.10) 100%),
-    url("{{ '/assets/img/Research_1/injury risk prediction.jpg' | relative_url }}") center / cover no-repeat;
+  background: #fff;
+  /* 背景图透明度：0 = 完全透明，1 = 完全不透明 */
+  --hero-img-opacity: 0.6;
+}
+
+/* 背景图层 */
+.research-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url("{{ '/assets/img/Research_1/injury risk prediction.jpg' | relative_url }}") center / cover no-repeat;
+  opacity: var(--hero-img-opacity);
+}
+
+/* 白色渐变遮罩层（保证左侧文字清晰） */
+.research-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,0.99) 0%,
+    rgba(255,255,255,0.97) 40%,
+    rgba(255,255,255,0.72) 62%,
+    rgba(255,255,255,0.10) 100%);
 }
 
 .research-hero-inner {
@@ -182,63 +201,61 @@ resources:
 /* Overview */
 .research-overview {
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
-  gap: 28px;
-  align-items: center;
+  grid-template-columns: minmax(150px, 0.32fr) minmax(0, 1.68fr);
+  gap: 42px;
+  align-items: start;
   margin-bottom: 72px;
+  padding: 10px 0 48px;
+  border-bottom: 1px solid var(--rd-border);
 }
 
-.overview-copy h2,
+.overview-title {
+  position: sticky;
+  top: 128px;
+}
+
+.overview-kicker {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--rd-purple);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.overview-title h2,
 .resources-section h2 {
-  margin: 0 0 16px;
+  margin: 0;
   color: var(--rd-text);
   font-size: 32px;
   font-weight: 750;
+  line-height: 1.15;
   letter-spacing: -0.02em;
 }
 
+.overview-content {
+  min-width: 0;
+}
+
 .overview-objective {
-  margin: 0 0 18px;
-  padding: 18px 20px;
+  margin: 0 0 20px;
+  padding: 22px 24px;
+  border: 1px solid var(--rd-purple-line);
   border-left: 4px solid var(--rd-purple);
-  border-radius: 0 12px 12px 0;
-  background: var(--rd-purple-soft);
+  border-radius: 12px;
+  background: linear-gradient(135deg, #faf7ff 0%, var(--rd-purple-soft) 100%);
   color: #393345;
   font-size: 15px;
-  line-height: 1.7;
+  line-height: 1.72;
 }
 
-.overview-copy p {
+.overview-content p {
+  max-width: 900px;
+  margin: 0;
   color: var(--rd-muted);
   font-size: 16px;
-  line-height: 1.78;
-}
-
-.overview-flow-card {
-  padding: 24px;
-  border: 1px solid var(--rd-border);
-  border-radius: 16px;
-  background: var(--rd-card);
-}
-
-.overview-flow {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr auto 1fr;
-  gap: 10px;
-  align-items: center;
-  text-align: center;
-}
-
-.overview-flow .step {
-  color: var(--rd-purple-dark);
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1.35;
-}
-
-.overview-flow .arrow {
-  color: #aa8be8;
-  font-size: 20px;
+  line-height: 1.8;
 }
 
 /* Research sections */
@@ -413,9 +430,10 @@ resources:
 @media (max-width: 900px) {
   .research-hero {
     min-height: 0;
-    background:
-      linear-gradient(rgba(255,255,255,0.93), rgba(255,255,255,0.95)),
-      url("{{ '/assets/img/Research_1/injury risk prediction.jpg' | relative_url }}") center / cover no-repeat;
+  }
+
+  .research-hero::after {
+    background: linear-gradient(rgba(255,255,255,0.93), rgba(255,255,255,0.95));
   }
 
   .research-hero-inner {
@@ -426,6 +444,10 @@ resources:
   .research-metrics,
   .research-overview {
     grid-template-columns: 1fr;
+  }
+
+  .overview-title {
+    position: static;
   }
 
   .research-subnav {
@@ -465,14 +487,6 @@ resources:
 
   .section-heading h2 {
     font-size: 23px;
-  }
-
-  .overview-flow {
-    grid-template-columns: 1fr;
-  }
-
-  .overview-flow .arrow {
-    transform: rotate(90deg);
   }
 
   .research-detail-page table {
@@ -534,8 +548,13 @@ resources:
 
 
 <section id="overview" class="research-overview">
-  <div class="overview-copy">
+
+  <div class="overview-title">
+    <span class="overview-kicker">Research framework</span>
     <h2>Overview</h2>
+  </div>
+
+  <div class="overview-content">
 
     <div class="overview-objective">
       <strong>Research objective.</strong>
@@ -551,17 +570,9 @@ resources:
       Our research therefore connects traffic-level interactions with vehicle-level collision dynamics and occupant-level injury outcomes,
       providing a quantitative basis for automated-driving decision support and safety assessment.
     </p>
+
   </div>
 
-  <div class="overview-flow-card">
-    <div class="overview-flow">
-      <div class="step">Risk<br>Perception</div>
-      <div class="arrow">→</div>
-      <div class="step">Injury<br>Prediction</div>
-      <div class="arrow">→</div>
-      <div class="step">Safety Evaluation<br>&amp; Decision Making</div>
-    </div>
-  </div>
 </section>
 
 
