@@ -557,19 +557,13 @@ resources:
   <div class="overview-content">
 
     <div class="overview-objective">
-      <strong>Research objective.</strong>
-      We develop human-centered methods that integrate
-      <strong>risk perception, physics-informed risk assessment, occupant injury severity prediction, and injury-aware decision making</strong>,
-      bridging pre-crash collision avoidance with in-crash injury mitigation to support safer and more integrated intelligent vehicle safety systems.
+      <strong>Research objective:</strong>
+      The rapid development of intelligent vehicles is reshaping how road safety is assessed and managed.
+      <strong> A comprehensive safety framework requires intelligent vehicles to understand, as humans do, how risk develops, how severe the resulting impact may be, and what consequences different outcomes may have for occupants </strong>.
+      Our research therefore connects traffic-level interactions with vehicle-level collision dynamics and occupant-level injury outcomes, providing a quantitative basis for automated-driving decision support and safety assessment.
+
     </div>
 
-    <p>
-      The rapid development of intelligent vehicles is reshaping how road safety is assessed and managed.
-      A comprehensive safety framework requires intelligent vehicles to understand, as humans do, how risk develops,
-      how severe the resulting impact may be, and what consequences different outcomes may have for occupants.
-      Our research therefore connects traffic-level interactions with vehicle-level collision dynamics and occupant-level injury outcomes,
-      providing a quantitative basis for automated-driving decision support and safety assessment.
-    </p>
 
   </div>
 
