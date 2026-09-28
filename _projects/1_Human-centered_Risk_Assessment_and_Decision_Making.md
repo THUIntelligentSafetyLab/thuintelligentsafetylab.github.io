@@ -696,8 +696,7 @@ resources:
     <div class="research-eyebrow">Autonomous vehicle safety research</div>
     <h1>Human-centered Risk Assessment &amp; Decision Making of Autonomous Vehicle</h1>
     <p>
-      We integrate human risk perception, physics-informed risk assessment,
-      occupant injury severity prediction, and injury-aware decision making
+      We integrate human risk perception, occupant injury severity prediction, and human-informed decision making
       to bridge pre-crash collision avoidance and in-crash injury mitigation.
     </p>
 
