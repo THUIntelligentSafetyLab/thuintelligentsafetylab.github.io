@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Human-centered Risk Assessment & Decision Making of Autonomous Vehicle
-description: Human-centered methods that connect driver risk perception, occupant injury severity prediction, and safety performance evaluation of autonomous vehicles, bridging pre-crash collision avoidance and in-crash injury mitigation.
+description: In safety-critical scenarios, drivers serve as both the primary object of protection and the primary subject of learning. Human-centered methods that integrate driver risk perception, occupant injury severity prediction, and unified safety performance evaluation offer valuable guidance for training safety decision-making models for autonomous vehicles.
 importance: 1
 category: research
 giscus_comments: false # 关闭评论
