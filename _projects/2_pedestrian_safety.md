@@ -1,5 +1,6 @@
 
 ---
+layout: page
 title: "Pedestrian Safety Research Group · Tsinghua University"
 description: "The last two seconds before a crash: we measure how pedestrians react, build digital pedestrians with realistic behavior, and design AI-driven integrated safety systems that reduce injury. Nie Lab, Tsinghua University."
 importance: 2
