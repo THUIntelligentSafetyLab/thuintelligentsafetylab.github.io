@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Pedestrian Safety"
-description: "The last two seconds before a crash: we measure how pedestrians react, build digital pedestrians with realistic behavior, and design AI-driven integrated safety systems that reduce injury. Nie Lab, Tsinghua University."
+description: "The last two seconds before a crash: we measure how pedestrians react, build digital pedestrians with realistic behavior, and design AI-driven integrated safety systems that reduce injury."
 importance: 2
 category: research
 img: assets/img/Research_2/research_ped.png
