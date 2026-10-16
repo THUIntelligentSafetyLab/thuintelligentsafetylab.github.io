@@ -1,4 +1,3 @@
-
 ---
 layout: page
 title: "Pedestrian Safety Research Group · Tsinghua University"
