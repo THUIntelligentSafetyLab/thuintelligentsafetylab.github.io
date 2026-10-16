@@ -16,16 +16,16 @@ profiles:
       <p></p>
 
   - align: right
-    image: professor_nie.jpg
-    content: professor_nie.md
+    image: professor_xia.jpg
+    content: professor_xia.md
     image_circular: false
     more_info: >
       <p></p>
       <p></p>
-
+      
   - align: right
-    image: professor_xia.jpg
-    content: professor_xia.md
+    image: professor_nie.jpg
+    content: professor_nie.md
     image_circular: false
     more_info: >
       <p></p>
