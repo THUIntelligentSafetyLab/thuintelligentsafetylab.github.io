@@ -10,8 +10,45 @@ related_publications: false
 ---
 
 <style>
-/* Hide the duplicate al-folio project heading; the interactive hero supplies its own heading. */
-.post-header, .post-description { display: none !important; }
+/* =========================================
+   Hide al-folio duplicate page heading
+   ========================================= */
+
+.post-header,
+.post-description {
+  display: none !important;
+}
+
+
+/* =========================================
+   Pedestrian Safety full-width layout
+   ========================================= */
+
+#pedestrian-safety {
+  display: block;
+
+  /* Make the page as wide as the viewport */
+  width: 100vw;
+  max-width: none;
+
+  /* Break out of the al-folio content container */
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Prevent internal content from causing overflow */
+  overflow-x: clip;
+
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+
+/* Avoid unexpected width calculations */
+#pedestrian-safety {
+  box-sizing: border-box;
+}
+
 </style>
 
 <script>
