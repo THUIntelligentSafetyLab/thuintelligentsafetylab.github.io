@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Integrated Safety
-description: Physics-informed risk assessment and multi-fidelity occupant injury prediction that connect collision avoidance with crash injury mitigation.
+title: Integrated Active and Passive Safety for Vehicles
+description: Physics-informed risk assessment and multi-fidelity occupant injury prediction are integrated to bridge collision avoidance and crash injury mitigation. The proposed approach includes a physics-informed model that combines collision probability with injury severity, and a multi-fidelity learning framework that predicts occupant injury criteria from crash dynamics, restraint settings, and occupant characteristics.
 img: assets/img/Research_3/research_int_safety.jpg
 permalink: /projects/3_integrated_safety/
 importance: 3
