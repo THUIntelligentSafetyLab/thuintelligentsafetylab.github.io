@@ -989,7 +989,7 @@ On the numerical dataset, the final model achieved **85.4%** accuracy in predict
 
       <button type="button" class="gallery-thumb gallery-thumb-video"
         data-type="video"
-        data-src="{{ '/assets/img/Research_1/paper_shen_2025_5.mov' | relative_url }}"
+        data-src="{{ '/assets/img/Research_1/paper_shen_2025_5.mp4' | relative_url }}"
         data-caption="Driving-simulator experiment video"
         aria-label="Play driving-simulator experiment video">
         <span aria-hidden="true">&#9654; Video</span>
