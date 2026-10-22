@@ -58,7 +58,7 @@ resources:
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: url("{{ '/assets/img/Research_1/injury risk prediction.jpg' | relative_url }}") center / cover no-repeat;
+  background: url("{{ '/assets/img/Research_1/human-centered method.jpg' | relative_url }}") center / cover no-repeat;
   opacity: var(--hero-img-opacity);
 }
 
@@ -694,7 +694,7 @@ resources:
 <section class="research-hero">
   <div class="research-hero-inner">
     <div class="research-eyebrow">Autonomous vehicle safety research</div>
-    <h1>Human-centered Risk Assessment &amp; Safety Performance Evaluation for Autonomous Vehicles</h1>
+    <h1>Human-centered Risk Assessment &amp; Safety Performance Evaluation</h1>
     <p>
       In safety-critical scenarios, drivers serve as both the primary object of protection and the primary subject of learning. Human-centered methods that integrate driver risk perception and occupant injury severity estimation facilitate unified safety performance evaluation.
     </p>
