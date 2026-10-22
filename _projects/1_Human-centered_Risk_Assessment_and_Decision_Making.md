@@ -696,8 +696,7 @@ resources:
     <div class="research-eyebrow">Autonomous vehicle safety research</div>
     <h1>Human-centered Risk Assessment &amp; Safety Performance Evaluation for Autonomous Vehicles</h1>
     <p>
-      We integrate human risk perception, occupant injury severity estimation, and unified safety performance evaluation
-      to bridge pre-crash collision avoidance and in-crash injury mitigation.
+      In safety-critical scenarios, drivers serve as both the primary object of protection and the primary subject of learning. Human-centered methods that integrate driver risk perception and occupant injury severity estimation facilitate unified safety performance evaluation.
     </p>
 
     <div class="research-flow">
