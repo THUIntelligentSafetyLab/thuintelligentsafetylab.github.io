@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Integrated Safety
+title: Integrated Active and Passive Safety for Vehicles
 description: Coordinating collision avoidance and injury mitigation through risk assessment, injury prediction, driving decisions and human-informed evaluation.
 img: assets/img/Research_3/research_int_safety.jpg
 permalink: /projects/3_integrated_safety/
