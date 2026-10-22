@@ -709,9 +709,9 @@ resources:
 
 <div class="research-metrics">
   <div class="metric-card">
-    <div class="metric-value">20 / 21</div>
-    <div class="metric-title">Best or tied-best attention comparisons</div>
-    <div class="metric-note">Jointly trained on four driver-attention datasets and tested on held-out PSAD, across five saliency metrics.</div>
+    <div class="metric-value">Domain-Adaptive</div>
+    <div class="metric-title">Driver attention prediction model</div>
+    <div class="metric-note">Jointly trained on four driver-attention datasets, our model ranks best.</div>
   </div>
 
   <div class="metric-card">
