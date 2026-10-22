@@ -1,12 +1,12 @@
 ---
 layout: page
-title: Human-centered Risk Assessment & Decision Making of Autonomous Vehicle
-description: In safety-critical scenarios, drivers serve as both the primary object of protection and the primary subject of learning. Human-centered methods that integrate driver risk perception, occupant injury severity prediction, and unified safety performance evaluation offer valuable guidance for training safety decision-making models for autonomous vehicles.
+title: Human-centered Risk Assessment & Safety Performance Evaluation for Autonomous Vehicles
+description: In safety-critical scenarios, drivers serve as both the primary object of protection and the primary subject of learning. Human-centered methods that integrate driver risk perception and occupant injury severity estimation facilitate unified safety performance evaluation.
 importance: 1
 category: research
 giscus_comments: false # 关闭评论
 related_publications: false # 关闭引用文献区块
-img: assets/img/Research_1/injury risk prediction.jpg
+img: assets/img/Research_1/human-centered method.jpg
 
 # Public resources. Update the empty URLs when datasets/code are released.
 resources:
@@ -694,27 +694,25 @@ resources:
 <section class="research-hero">
   <div class="research-hero-inner">
     <div class="research-eyebrow">Autonomous vehicle safety research</div>
-    <h1>Human-centered Risk Assessment &amp; Decision Making of Autonomous Vehicle</h1>
+    <h1>Human-centered Risk Assessment &amp; Safety Performance Evaluation for Autonomous Vehicles</h1>
     <p>
-      We integrate human risk perception, occupant injury severity prediction, and human-informed decision making
+      We integrate human risk perception, occupant injury severity estimation, and unified safety performance evaluation
       to bridge pre-crash collision avoidance and in-crash injury mitigation.
     </p>
 
     <div class="research-flow">
       <span>Risk perception</span>
-      <span>Injury severity prediction</span>
+      <span>Injury severity estimation</span>
       <span>Safety evaluation</span>
-      <span>Decision making</span>
     </div>
   </div>
 </section>
 
 <div class="research-metrics">
   <div class="metric-card">
-    <div class="metric-value">Domain-Adaptive</div>
-    <div class="metric-title">Driver attention prediction model</div>
-    <div class="metric-note">Jointly trained on four driver attention datasets, our model outperforms state-of-the-art methods on seven metrics.
-</div>
+    <div class="metric-value">20 / 21</div>
+    <div class="metric-title">Best or tied-best attention comparisons</div>
+    <div class="metric-note">Jointly trained on four driver-attention datasets and tested on held-out PSAD, across five saliency metrics.</div>
   </div>
 
   <div class="metric-card">
@@ -733,9 +731,9 @@ resources:
 <nav class="research-subnav" aria-label="Research page sections">
   <a href="#overview">Overview</a>
   <a href="#risk-perception">Risk Perception</a>
-  <a href="#injury-prediction">Injury Prediction</a>
+  <a href="#injury-estimation">Injury Estimation</a>
   <a href="#safety-evaluation">Safety Evaluation</a>
-  <a href="#publications-data">Publications &amp; Data</a>
+  <a href="#publications-data">Publications &amp; Resources</a>
 </nav>
 
 
@@ -750,8 +748,8 @@ resources:
 
     <div class="overview-objective">
       The rapid development of intelligent vehicles is reshaping how road safety is assessed and managed.
-      <strong> A comprehensive safety framework requires intelligent vehicles to understand, as humans do, how risk develops, how severe the resulting impact may be, and what consequences different outcomes may have for occupants </strong>.
-      Our research therefore connects traffic-level interactions with vehicle-level collision dynamics and occupant-level injury outcomes, providing a quantitative basis for automated-driving decision support and safety assessment.
+      <strong> A comprehensive safety framework requires intelligent vehicles to understand, as humans do, how risk develops, how severe the resulting impact may be, and what consequences different outcomes may have for occupants</strong>.
+      Our research therefore connects traffic-level interactions with vehicle-level collision dynamics and occupant-level injury outcomes, providing a quantitative basis for unified safety assessment.
 
     </div>
 
@@ -769,7 +767,7 @@ resources:
     <h2><a href="https://doi.org/10.1109/TITS.2022.3177640">Human-centered risk perception</a></h2>
     <p class="section-lead">Model how human drivers perceive and prioritize latent risks across heterogeneous and interactive traffic scenes.</p>
     <div class="section-stats">
-      <span>5 public datasets</span>
+      <span>4 training datasets</span>
       <span>Cross-domain attention prediction</span>
       <span>Held-out PSAD evaluation</span>
     </div>
@@ -830,22 +828,10 @@ resources:
 
   <div class="paper-copy" markdown="1">
 
-### 1.1 Framework
 
-Human drivers do not process all visual information equally. Their attention is selectively allocated to traffic elements that are relevant to the current driving task.
+Human drivers do not process all visual information equally. Their attention is selectively allocated to traffic elements that are relevant to the current driving task. We developed an **Adaptive Driver Attention (ADA)** model to predict driver visual attention across heterogeneous driving environments.
 
-### 1.2 Methods
-
-We developed an **Adaptive Driver Attention (ADA)** model to predict driver visual attention across heterogeneous driving environments, which is inspired by the two principal mechanisms of human visual attention:
-
-- **Bottom-up attention**, in which salient visual stimuli attract attention automatically.
-- **Top-down attention**, in which drivers adjust perceptual priorities according to the current driving task and traffic context.
-
-The model incorporates **domain-specific batch normalization, Gaussian priors, smoothing filters, spatial attention, channel attention, and domain-specific focal loss** to mitigate heterogeneity arising from different video sources, gaze-collection protocols, scene distributions, and saliency-map generation procedures.
-
-### 1.3 Results
-
-The model was jointly trained on four public driver-attention datasets — **BDD-A, DADA-2000, DReyeVE, and EyeTrack** — and further evaluated on **PSAD**. The results show that the model can generalize across heterogeneous traffic scenes and reproduce characteristic human attention patterns in cruising, turning, conflict, and accident-related situations. Importantly, the predicted attention maps can shift toward **latent conflict regions and relevant interacting vehicles**, providing a basis for identifying where human drivers are likely to allocate attention before and during safety-critical events.
+The model was jointly trained on four public driver-attention datasets — **BDD-A, DADA-2000, DReyeVE, and EyeTrack** — and further evaluated on **PSAD**. Across the five datasets, ADA ranked best or tied-best in **20 of 21 dataset–metric comparisons** (KLD, CC, SIM, NSS, and AUC-J). The results show that the model can generalize across heterogeneous traffic scenes and reproduce characteristic human attention patterns in cruising, turning, conflict, and accident-related situations. Importantly, the predicted attention maps can shift toward **latent conflict regions and relevant interacting vehicles**, providing a basis for identifying where human drivers are likely to allocate attention before and during safety-critical events.
 
   </div>
 
@@ -854,12 +840,12 @@ The model was jointly trained on four public driver-attention datasets — **BDD
 </section>
 
 
-<section id="injury-prediction" class="research-section" markdown="1">
+<section id="injury-estimation" class="research-section" markdown="1">
 
 <div class="section-heading">
   <div class="section-number">02</div>
   <div>
-    <h2><a href="https://doi.org/10.1016/j.aap.2021.106149">Occupant injury severity prediction</a></h2>
+    <h2><a href="https://doi.org/10.1016/j.aap.2021.106149">Occupant injury severity estimation</a></h2>
     <p class="section-lead">Predict occupant injury severity from crash dynamics, occupant characteristics, and restraint conditions with near-real-time computation.</p>
     <div class="section-stats">
       <span>28,000 numerical cases</span>
@@ -876,18 +862,18 @@ The model was jointly trained on four public driver-attention datasets — **BDD
     <div class="gallery-main">
       <img
         src="{{ '/assets/img/Research_1/paper_wang_2021_1.png' | relative_url }}"
-        alt="Technical framework of near real-time occupant injury prediction"
+        alt="Technical framework of near-real-time occupant injury prediction"
       >
     </div>
 
     <div class="gallery-caption">
-      Technical framework of near real-time occupant injury prediction
+      Technical framework of near-real-time occupant injury prediction
     </div>
 
     <div class="gallery-thumbs">
       <button type="button" class="gallery-thumb active"
         data-src="{{ '/assets/img/Research_1/paper_wang_2021_1.png' | relative_url }}"
-        data-caption="Technical framework of near real-time occupant injury prediction"
+        data-caption="Technical framework of near-real-time occupant injury prediction"
         aria-label="Show injury prediction framework">
         <img src="{{ '/assets/img/Research_1/paper_wang_2021_1.png' | relative_url }}" alt="">
       </button>
@@ -911,24 +897,10 @@ The model was jointly trained on four public driver-attention datasets — **BDD
   <div class="paper-copy" markdown="1">
 
 
-### 2.1 Framework
+Occupant injury is governed by complex interactions among vehicle crash dynamics, occupant characteristics, and restraint conditions, making rapid and reliable injury assessment challenging. To address this, we built a large-scale numerical crash database (**28,000 frontal collision cases**). Deep learning first captured the nonlinear crash-to-injury relationship; we then extracted compact, physically interpretable kinematic features from crash pulses and paired them with low-complexity machine-learning models. This enabled near-real-time injury prediction with substantially lower computational cost while maintaining reliable performance.
 
-Occupant injury is governed by complex interactions among vehicle crash dynamics, occupant characteristics, and restraint conditions, making rapid and reliable injury assessment challenging. To address this, we built a large-scale numerical crash database across diverse frontal impacts. Deep learning first captured the nonlinear crash-to-injury relationship; we then extracted compact, physically interpretable kinematic features from crash pulses and paired them with low-complexity machine-learning models. This enabled near-real-time injury prediction with substantially lower computational cost while maintaining reliable performance.
+On the numerical dataset, the final model achieved **85.4%** accuracy in predicting head injury severity. On an independent dataset of 192 real-world collisions, it achieved **78.7%** accuracy, a precision of 0.636, a recall of 0.787, and an AUC of 0.698. Crucially, each prediction takes only **1.2 ± 0.4 ms** — several orders of magnitude faster than finite element simulation — making it fast enough to inform occupant protection decisions within the crash itself.
 
-### 2.2 Dataset
-
-A large-scale numerical database containing **28,000 frontal collision cases** was constructed by combining finite-element, multi-body, and lumped-parameter simulation models. The database covers occupant kinetics and injury responses with variations in vehicle crash pulse, occupant gender, and restraint configuration. 
-
-To further validate the injury prediction model, we constructed a small real-world MVC dataset from NASS/CDS. After excluding multiple-impact cases and non-sedan vehicle types (pickup, utility, van), the final dataset contained 192 frontal collisions with head, neck, and chest AIS levels ranging from 0 to 6.
-
-
-### 2.3 Methods
-
-The RNN-based injury severity prediction model adopted a conventional encoder–decoder architecture with long short-term memory (LSTM) units, whereas the CNN-based model employed a temporal convolutional network (TCN) with causal and dilated convolutions to capture temporal dependencies using only past information. The models took vehicle crash pulses, occupant gender, and seatbelt and airbag use as inputs and predicted occupant kinematic and biomechanical responses, including head acceleration, chest displacement, neck force, and neck moment, which were subsequently converted into AIS injury levels.
-
-### 2.4 Results
-
-On the numerical dataset, the final model achieved **85.4%** accuracy in predicting head injury severity. On an independent dataset of 192 real-world collisions, it achieved **78.7%** accuracy, a recall of 0.787, and an AUC of 0.698. Crucially, each prediction takes only **1.2 ± 0.4** ms—several orders of magnitude faster than finite element simulation—making it fast enough to inform occupant protection decisions within the crash itself.
   </div>
 
 </div>
@@ -941,7 +913,7 @@ On the numerical dataset, the final model achieved **85.4%** accuracy in predict
 <div class="section-heading">
   <div class="section-number">03</div>
   <div>
-    <h2><a href="https://doi.org/10.1016/j.aap.2025.108273">Safety performance evaluation and human-informed decision making</a></h2>
+    <h2><a href="https://doi.org/10.1016/j.aap.2025.108273">Safety performance evaluation</a></h2>
     <p class="section-lead">Evaluate automated-driving safety by jointly considering collision occurrence and occupant injury severity under standardized safety-critical scenarios.</p>
     <div class="section-stats">
       <span>30 participants</span>
@@ -958,18 +930,18 @@ On the numerical dataset, the final model achieved **85.4%** accuracy in predict
     <div class="gallery-main">
       <img
         src="{{ '/assets/img/Research_1/paper_shen_2025_1.jpg' | relative_url }}"
-        alt="Highway simulated safety-critical scenarios and experimental procedure"
+        alt="Simulated highway safety-critical scenarios and experimental procedure"
       >
     </div>
 
     <div class="gallery-caption">
-      Highway simulated safety-critical scenarios and experimental procedure
+      Simulated highway safety-critical scenarios and experimental procedure
     </div>
 
     <div class="gallery-thumbs">
       <button type="button" class="gallery-thumb active"
         data-src="{{ '/assets/img/Research_1/paper_shen_2025_1.jpg' | relative_url }}"
-        data-caption="Highway simulated safety-critical scenarios and experimental procedure"
+        data-caption="Simulated highway safety-critical scenarios and experimental procedure"
         aria-label="Show experimental framework">
         <img src="{{ '/assets/img/Research_1/paper_shen_2025_1.jpg' | relative_url }}" alt="">
       </button>
@@ -985,34 +957,23 @@ On the numerical dataset, the final model achieved **85.4%** accuracy in predict
 
   <div class="paper-copy" markdown="1">
 
-### 3.1 Framework
+Existing real-world datasets for evaluating the safety protection performance of automated vehicles differ substantially from those of conventional vehicles in terms of accumulated mileage, crash types, and other characteristics, making direct comparisons across manufacturers and levels of driving automation difficult. To address this issue, we developed a unified driving-simulator-based framework that integrates automated vehicle models at different levels of automation, an accelerated generation algorithm for highway safety-critical scenarios, and a data-driven occupant injury quantification model, enabling comprehensive and fair comparisons under standardized safety-critical scenarios, consistent levels of scenario urgency, and unified evaluation metrics.
 
-Existing real-world datasets for evaluating the safety protection performance of automated vehicles differ substantially from those of conventional vehicles in terms of accumulated mileage, crash types, and other characteristics, making direct comparisons across manufacturers and levels of driving automation difficult. To address this issue, we developed a unified driving-simulator-based framework for evaluating the safety protection performance of automated vehicles. The framework integrates automated vehicle models at different levels of automation, an accelerated generation algorithm for highway safety-critical scenarios, and a data-driven occupant injury quantification model, enabling comprehensive and fair comparisons under standardized crash conditions, consistent levels of scenario urgency, and unified evaluation metrics.
-
-### 3.2 Experimental dataset
-
-The experiment uses a high-fidelity driving simulator and parameterized hazard-triggering algorithms to generate three representative highway conflict types: Braking (a leading vehicle performs sudden emergency braking), Cut-in (a surrounding vehicle abruptly enters the ego vehicle's lane), and Merging (a surrounding vehicle competes for the ego vehicle's target lane during a lane change). The study finally collected 30 valid participants and 1,859 safety-critical vehicle interactions which contains 337 collisions. The unified experimental framework records the progression from normal driving through hazard triggering, decision making, driver intervention or disengagement, collision avoidance, and collision.
-
-### 3.3 Safety performance evaluation
-
-We developed a metric (**unified safety benefit**) that evaluates automated-driving safety through both **collision occurrence and occupant injury severity** under comparable safety-critical scenarios. Vehicles representing **attentive manual driving (selective SAE L0), SAE L2, L3, and L4 automation** were evaluated under comparable road scenarios, similar urgency levels, and consistent metrics. Under the designed safety-critical scenarios, the study reported:
+The final dataset comprised 30 valid participants and 1,859 safety-critical vehicle interactions, including 337 collisions. We developed a metric (**unified safety benefit**) that evaluates automated-driving safety through both **collision occurrence and occupant injury severity**. Vehicles representing **attentive manual driving (selective SAE L0), SAE L2, L3, and L4 automation** were compared. Under the designed safety-critical scenarios, the study reported:
 
 <div class="safety-benefit-table" markdown="1">
 
 | Automation level | Collision rate | Probability of severe occupant injury | Unified safety benefit |
 | --- | ---: | ---: | ---: |
-| selective L0 | 12.6% | 8.6% | 94.0% |
+| Selective L0 | 12.6% | 8.6% | 94.0% |
 | L2 | 24.3% | 11.1% | 90.0% |
 | L3 | 21.4% | 21.6% | 89.0% |
 | L4 | 14.1% | 9.2% | 95.0% |
 
 </div>
 
-The results show that **a lower collision rate does not necessarily translate directly into a proportionally higher overall safety benefit**. In the experiment, **Level 3 automation reduced collision occurrence relative to Level 2 but exhibited higher injury severity when collisions occurred, resulting in comparable unified safety benefits**. Level 4 achieved a higher overall safety benefit primarily through a lower collision rate, while the reduction in residual-collision injury severity was more limited. 
+The results show that **a lower collision rate does not necessarily translate directly into a proportionally higher overall safety benefit**. In the experiment, **Level 3 automation reduced collision occurrence relative to Level 2 but exhibited higher injury severity when collisions occurred, resulting in comparable unified safety benefits**. Among the automated levels, Level 4 achieved the highest unified safety benefit, primarily through a lower collision rate than Level 2 and Level 3, while the reduction in residual-collision injury severity was more limited.
 
-### 3.4 Human-informed decision making
-
-The current published framework establishes the experimental and quantitative basis for human-informed decision support. A fully closed-loop controller that directly optimizes automated-driving trajectories using predicted injury outcomes is an ongoing research direction.
 
   </div>
 
@@ -1029,7 +990,7 @@ The current published framework establishes the experimental and quantitative ba
 | :--- | :---: |
 | [**Gan, S., et al.** (2022). Multisource Adaption for Driver Attention Prediction in Arbitrary Driving Scenes. *IEEE Transactions on Intelligent Transportation Systems, 23*(11), 20912–20925. https://doi.org/10.1109/TITS.2022.3177640](https://doi.org/10.1109/TITS.2022.3177640) | {% if page.resources.ada_code and page.resources.ada_code != "" %}[ADA code]({{ page.resources.ada_code }}){% else %}ADA code{% endif %} |
 | [**Wang, Q., et al.** (2021). A data-driven, kinematic feature-based, near real-time algorithm for injury severity prediction of vehicle occupants. *Accident Analysis & Prevention, 156*, 106149. https://doi.org/10.1016/j.aap.2021.106149](https://doi.org/10.1016/j.aap.2021.106149) | {% if page.resources.vehicle_crash_database and page.resources.vehicle_crash_database != "" %}[Vehicle-crash dataset]({{ page.resources.vehicle_crash_database }}){% else %}Vehicle-crash dataset{% endif %} |
-| [**Shen, J., et al.** (2025). A unified experimental framework for estimating collision rates and occupant injury severity across different levels of driving automation. *Accident Analysis & Prevention, 223*, 108273. https://doi.org/10.1016/j.aap.2025.108273](https://doi.org/10.1016/j.aap.2025.108273) | {% if page.resources.experimental_dataset and page.resources.experimental_dataset != "" %}[Experimental dataset]({{ page.resources.experimental_dataset }}){% else %}Experimental dataset (preparing release){% endif %} |
+| [**Shen, J., et al.** (2025). A unified experimental framework for estimating collision rates and occupant injury severity across different levels of driving automation. *Accident Analysis & Prevention, 223*, 108273. https://doi.org/10.1016/j.aap.2025.108273](https://doi.org/10.1016/j.aap.2025.108273) | {% if page.resources.experimental_dataset and page.resources.experimental_dataset != "" %}[Experimental dataset]({{ page.resources.experimental_dataset }}){% else %}Experimental dataset (release in preparation){% endif %} |
 
 </section>
 
