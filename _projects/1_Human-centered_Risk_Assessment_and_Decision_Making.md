@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Human-centered Risk Assessment & Safety Performance Evaluation for Autonomous Vehicles
+title: Human-centered Risk Assessment & Safety Performance Evaluation
 description: In safety-critical scenarios, drivers serve as both the primary object of protection and the primary subject of learning. Human-centered methods that integrate driver risk perception and occupant injury severity estimation facilitate unified safety performance evaluation.
 importance: 1
 category: research
