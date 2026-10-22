@@ -436,6 +436,20 @@ resources:
   box-shadow: none !important;
 }
 
+.gallery-main video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #000;
+}
+
+/* Keep hidden image/video out of the layout (overrides display: block above) */
+.gallery-main [hidden] {
+  display: none !important;
+}
+
 .gallery-caption {
   min-height: 38px;
   margin: 9px 2px 10px;
@@ -489,6 +503,18 @@ resources:
   object-fit: cover;
   border-radius: 5px;
   box-shadow: none !important;
+}
+
+/* Video thumbnail: play label instead of a preview image */
+.gallery-thumb-video {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--rd-purple-soft);
+  color: var(--rd-purple);
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 /* Narrow table used only for the automation-level safety-benefit result */
@@ -931,6 +957,8 @@ On the numerical dataset, the final model achieved **85.4%** accuracy in predict
         src="{{ '/assets/img/Research_1/paper_shen_2025_1.jpg' | relative_url }}"
         alt="Simulated highway safety-critical scenarios and experimental procedure"
       >
+      <!-- Video source is set by the gallery script only when its thumbnail is clicked -->
+      <video controls playsinline preload="metadata" hidden></video>
     </div>
 
     <div class="gallery-caption">
@@ -950,6 +978,21 @@ On the numerical dataset, the final model achieved **85.4%** accuracy in predict
         data-caption="Distribution of safety performance evaluation datasets across different levels of driving automation"
         aria-label="Show safety-evaluation dataset distribution">
         <img src="{{ '/assets/img/Research_1/paper_shen_2025_4.jpg' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb"
+        data-src="{{ '/assets/img/Research_1/paper_shen_2025.png' | relative_url }}"
+        data-caption="Limitations of existing safety evaluation approaches and the proposed unified experimental framework"
+        aria-label="Show unified experimental framework">
+        <img src="{{ '/assets/img/Research_1/paper_shen_2025.png' | relative_url }}" alt="">
+      </button>
+
+      <button type="button" class="gallery-thumb gallery-thumb-video"
+        data-type="video"
+        data-src="{{ '/assets/img/Research_1/paper_shen_2025_5.mov' | relative_url }}"
+        data-caption="Driving-simulator experiment video"
+        aria-label="Play driving-simulator experiment video">
+        <span aria-hidden="true">&#9654; Video</span>
       </button>
     </div>
   </aside>
@@ -998,6 +1041,7 @@ The results show that **a lower collision rate does not necessarily translate di
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll(".paper-gallery").forEach(function (gallery) {
     const mainImage = gallery.querySelector(".gallery-main img");
+    const mainVideo = gallery.querySelector(".gallery-main video");
     const caption = gallery.querySelector(".gallery-caption");
     const thumbs = gallery.querySelectorAll(".gallery-thumb");
 
@@ -1005,8 +1049,21 @@ document.addEventListener("DOMContentLoaded", function () {
       thumb.addEventListener("click", function () {
         const nextSrc = thumb.dataset.src;
         const nextCaption = thumb.dataset.caption || "";
+        const isVideo = thumb.dataset.type === "video" && mainVideo;
 
-        if (nextSrc) {
+        if (nextSrc && isVideo) {
+          mainImage.hidden = true;
+          mainVideo.hidden = false;
+          if (mainVideo.getAttribute("src") !== nextSrc) {
+            mainVideo.src = nextSrc;
+          }
+          mainVideo.setAttribute("aria-label", nextCaption);
+        } else if (nextSrc) {
+          if (mainVideo) {
+            mainVideo.pause();
+            mainVideo.hidden = true;
+          }
+          mainImage.hidden = false;
           mainImage.src = nextSrc;
           mainImage.alt = nextCaption;
         }
